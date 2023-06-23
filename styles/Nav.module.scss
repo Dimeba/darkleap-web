@@ -81,9 +81,6 @@
 	}
 }
 
-.logo {
-}
-
 // Hamburger
 
 %menuBtnDefault {
@@ -190,12 +187,12 @@
 @media screen and (max-width: 768px) {
 	.nav {
 		max-width: 100%;
-		padding: base.$mobile-margin;
+		padding: calc(base.$gap / 2);
 	}
 
 	.headerScroll {
 		.nav {
-			padding: base.$mobile-margin;
+			padding: calc(base.$gap / 2);
 		}
 	}
 }

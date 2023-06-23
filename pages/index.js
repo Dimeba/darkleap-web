@@ -17,7 +17,7 @@ export default function Home() {
 
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main>Kad se setim</main>
+			<main className='temp'>Kad se setim</main>
 		</>
 	)
 }
