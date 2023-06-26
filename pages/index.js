@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Team from '@/components/Team'
 import Values from '@/components/Values'
+import Contact from '@/components/Contact'
 
 export default function Home() {
 	return (
@@ -28,6 +29,7 @@ export default function Home() {
 				<About />
 				<Team />
 				<Values />
+				<Contact />
 			</>
 		</>
 	)

@@ -3,6 +3,7 @@
 .footer {
 	padding-top: base.$margin !important;
 	padding-bottom: base.$margin !important;
+	margin-top: calc(base.$margin * 3);
 	background-color: base.$color-main;
 
 	div {
@@ -69,6 +70,8 @@
 
 @media screen and (max-width: 768px) {
 	.footer {
+		margin-top: base.$margin;
+
 		div {
 			grid-column: span 1;
 		}

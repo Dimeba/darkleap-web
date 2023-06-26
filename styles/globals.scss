@@ -20,7 +20,7 @@ html {
 	grid-gap: base.$gap;
 	padding-left: base.$gap;
 	padding-right: base.$gap;
-	margin-top: calc(base.$margin * 3);
+	padding-top: calc(base.$margin * 3);
 }
 
 h1 {
@@ -73,6 +73,6 @@ a {
 		grid-gap: calc(base.$gap / 2);
 		padding-left: calc(base.$gap / 2);
 		padding-right: calc(base.$gap / 2);
-		margin-top: base.$margin;
+		padding-top: base.$margin;
 	}
 }
