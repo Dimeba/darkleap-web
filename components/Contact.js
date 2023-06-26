@@ -21,11 +21,10 @@ const Contact = () => {
 			</div>
 			<form
 				name='contact'
-				method='POST'
+				// method='POST'
 				netlify-honeypot='bot-field'
 				data-netlify='true'
-				action='/success'
-				onSubmit='submit'
+				// onSubmit='submit'
 			>
 				<input type='hidden' name='form-name' value='contact' />
 				<div className={styles.field}>
