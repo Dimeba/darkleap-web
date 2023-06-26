@@ -46,7 +46,7 @@ const Header = () => {
 					<Link href='/' scroll={false} passHref>
 						<div className={styles.logo}>
 							<Image
-								src='logo-white.svg'
+								src={isIntersecting ? 'logo-white.svg' : 'logo-dark.svg'}
 								width={134}
 								height={30}
 								alt='DarkLeap Logo'
@@ -58,7 +58,7 @@ const Header = () => {
 					<Hamburger toggleMenu={toggleMenu} menuClass={menuClass} />
 
 					<ul className={hiddenMenuClass}>
-						<Link href='#' scroll={false} passHref>
+						<Link href='#about-us' scroll={false} passHref>
 							<li onClick={() => closeMenu()}>About Us</li>
 						</Link>
 

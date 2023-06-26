@@ -1,13 +1,41 @@
 @use 'base';
 
 .footer {
-	padding-top: base.$margin;
-	padding-bottom: base.$margin;
+	padding-top: base.$margin !important;
+	padding-bottom: base.$margin !important;
 	background-color: base.$color-main;
 
 	div {
-		background-color: aqua;
 		grid-column: span 2;
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			li {
+				font-size: 0.875rem;
+				position: relative;
+				width: fit-content;
+			}
+
+			li:after {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 2px;
+				right: 0;
+				display: block;
+				background: white;
+				transition: width 0.2s ease;
+				-webkit-transition: width 0.2s ease;
+			}
+
+			li:hover:after {
+				width: 100%;
+				left: 0;
+			}
+		}
 	}
 
 	div:nth-of-type(1) {
@@ -17,6 +45,18 @@
 	* {
 		color: white;
 	}
+}
+
+.logoCredit {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.credit {
+	font-size: 0.75rem;
+	line-height: 1.4rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -36,5 +76,9 @@
 		div:nth-of-type(1) {
 			grid-column: 1 / 2;
 		}
+	}
+
+	.footerMenu {
+		margin-bottom: 1.875rem;
 	}
 }

@@ -1,0 +1,102 @@
+@use 'base';
+
+.button {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+
+	p {
+		font-weight: 700;
+		width: fit-content;
+		position: relative;
+	}
+}
+
+.buttonTextBlack {
+	width: fit-content;
+}
+
+.buttonTextWhite {
+	width: fit-content;
+	color: white;
+}
+
+.preButtonLine {
+	border-top: 2px solid base.$color-main;
+	width: 0;
+	margin-right: 0;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	margin-left: 1rem;
+}
+
+// .arrowHead {
+// 	border-top: 2px solid base.$color-main;
+// 	border-right: 2px solid base.$color-main;
+// 	width: 10px;
+// 	height: 10px;
+// 	transform: rotate(45deg);
+// 	position: relative;
+// 	right: 9px;
+// }
+
+// .arrowLine {
+// 	border-top: 2px solid base.$color-main;
+// 	width: 1.4rem;
+// }
+
+.preButtonLineBlack {
+	border-top: 2px solid base.$color-main;
+	width: 0;
+	margin-right: 0;
+}
+
+.arrowLineBlack {
+	border-top: 2px solid base.$color-main;
+	width: 1.4rem;
+}
+
+.arrowHeadBlack {
+	border-top: 2px solid base.$color-main;
+	border-right: 2px solid base.$color-main;
+	width: 10px;
+	height: 10px;
+	transform: rotate(45deg);
+	position: relative;
+	right: 9px;
+}
+
+.preButtonLineWhite {
+	border-top: 2px solid white;
+	width: 0;
+	margin-right: 0;
+}
+
+.arrowLineWhite {
+	border-top: 2px solid white;
+	width: 1.4rem;
+}
+
+.arrowHeadWhite {
+	border-top: 2px solid white;
+	border-right: 2px solid white;
+	width: 10px;
+	height: 10px;
+	transform: rotate(45deg);
+	position: relative;
+	right: 9px;
+}
+
+.button:hover .preButtonLineBlack,
+.button:hover .preButtonLineWhite {
+	width: 1.4rem;
+	margin-right: 1rem;
+}
+
+.button:hover .arrowLineBlack,
+.button:hover .arrowLineWhite {
+	width: 0;
+}

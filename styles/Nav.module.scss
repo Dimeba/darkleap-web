@@ -14,22 +14,28 @@
 .headerScroll {
 	@extend %header;
 	position: fixed;
-	background-color: base.$color-main;
-	// box-shadow: 0px 2px 10px rgba($color: base.$color-main, $alpha: 0.2);
+	background-color: white;
 	transition: all 0.2s ease-in-out;
 
 	.nav {
 		padding: 1rem;
 
-		// a {
-		// 	color: base.$color-main;
-		// }
+		ul {
+			li {
+				color: base.$color-main;
+			}
+
+			li:after {
+				background: base.$color-main;
+			}
+		}
 	}
 
 	.menuBtnBurger,
 	.menuBtnBurger::before,
 	.menuBtnBurger::after {
 		transition: all 0.2s ease-in-out;
+		background-color: base.$color-main !important;
 	}
 }
 
@@ -45,17 +51,12 @@
 	}
 
 	ul {
-		list-style: none;
 		display: flex;
 		gap: 2.5rem;
 
 		li {
 			font-size: 0.875rem;
 			position: relative;
-		}
-
-		li:hover {
-			color: base.$color-highlight;
 		}
 
 		li:after {
@@ -65,7 +66,7 @@
 			height: 2px;
 			right: 0;
 			display: block;
-			background: base.$color-highlight;
+			background: white;
 			transition: width 0.2s ease;
 			-webkit-transition: width 0.2s ease;
 		}
@@ -138,14 +139,17 @@
 	.menuBtnBurger {
 		transform: translateX(-50px);
 		background: transparent;
+		background-color: base.$color-main !important;
 	}
 
 	.menuBtnBurger::before {
 		transform: rotate(45deg) translate(35px, -35px);
+		background-color: base.$color-main !important;
 	}
 
 	.menuBtnBurger::after {
 		transform: rotate(-45deg) translate(35px, 35px);
+		background-color: base.$color-main !important;
 	}
 }
 
@@ -170,11 +174,12 @@
 			right: 0;
 			width: 100%;
 			height: 100vh;
-			background-color: base.$color-main;
+			background-color: white;
 
 			li {
 				width: fit-content;
 				text-align: right;
+				color: base.$color-main;
 			}
 		}
 
