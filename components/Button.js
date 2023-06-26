@@ -3,7 +3,7 @@ import styles from '@/styles/Button.module.scss'
 
 const Button = props => {
 	return (
-		<div className={styles.button}>
+		<button className={styles.button} type={props.type}>
 			<div
 				className={
 					props.buttonWhite
@@ -31,7 +31,7 @@ const Button = props => {
 					}
 				></div>
 			</div>
-		</div>
+		</button>
 	)
 }
 

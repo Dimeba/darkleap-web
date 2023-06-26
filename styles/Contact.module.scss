@@ -7,8 +7,65 @@
 	gap: calc(base.$gap / 2);
 }
 
+.contact form {
+	grid-column: 7 / 11;
+
+	label {
+		display: none;
+	}
+
+	input,
+	textarea,
+	select {
+		padding: 0.625rem 0;
+		margin: 0;
+		border: none;
+		border-bottom: 1px solid black;
+		border-radius: 0;
+		background-color: transparent;
+		color: #434343 !important;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+		box-sizing: border-box;
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+.formContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: calc(base.$gap / 2);
+	margin-bottom: calc(base.$gap / 2);
+
+	textarea {
+		height: 7.5rem;
+		grid-column: span 2;
+	}
+
+	input,
+	select {
+		width: 100%;
+	}
+}
+
 @media screen and (max-width: 1024px) {
+	.contactText {
+		grid-column: 1 / 5;
+	}
+
+	.contact form {
+		grid-column: span 4;
+	}
 }
 
 @media screen and (max-width: 768px) {
+	.contactText {
+		grid-column: span 2;
+	}
+
+	.contact form {
+		grid-column: span 2;
+	}
 }
