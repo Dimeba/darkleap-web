@@ -3,6 +3,7 @@ import Head from 'next/head'
 // sections
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import Team from '@/components/Team'
 import Values from '@/components/Values'
 
 export default function Home() {
@@ -20,11 +21,12 @@ export default function Home() {
 				/>
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<>
 				<Hero />
 				<About />
+				<Team />
 				<Values />
 			</>
 		</>

@@ -1,0 +1,71 @@
+@use 'base';
+
+.teamText {
+	grid-column: 3 / 7;
+	display: flex;
+	flex-direction: column;
+	gap: calc(base.$gap / 2);
+}
+
+.teamBios {
+	grid-column: 8 / 11;
+	display: flex;
+	flex-direction: column;
+	gap: base.$gap;
+}
+
+.bio {
+	display: flex;
+	align-items: center;
+	gap: base.$gap;
+
+	h3 {
+		margin-bottom: 0.625rem;
+	}
+}
+
+.teamMemberPhoto {
+	position: relative;
+	width: 42%;
+	min-width: 128px;
+	aspect-ratio: 1/1;
+}
+
+.teamMemberTitle {
+	margin-bottom: 1.25rem;
+}
+
+@media screen and (max-width: 1640px) {
+	.teamBios {
+		grid-column: span 4;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.teamText {
+		grid-column: 1 / 5;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.teamBios {
+		gap: calc(base.$gap / 2);
+	}
+
+	.bio {
+		gap: calc(base.$gap / 2);
+		flex-wrap: wrap;
+	}
+
+	.teamMemberPhoto {
+		min-width: 42%;
+	}
+
+	.teamText {
+		grid-column: span 2;
+	}
+
+	.teamBios {
+		grid-column: span 2;
+	}
+}
