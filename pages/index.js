@@ -3,6 +3,7 @@ import Head from 'next/head'
 // sections
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import Values from '@/components/Values'
 
 export default function Home() {
 	return (
@@ -24,6 +25,7 @@ export default function Home() {
 			<>
 				<Hero />
 				<About />
+				<Values />
 			</>
 		</>
 	)
