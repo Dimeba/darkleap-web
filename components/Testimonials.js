@@ -11,12 +11,14 @@ const Testimonials = () => {
 	// animated slider
 	const [targetRef, isIntersecting] = useIntersectionObserver()
 
+	// There must be 10 testimonials!!!
+
 	return (
 		<section id='testimonials' className={styles.testimonials}>
 			<div className='grid-container'>
 				<h2>Testimonials</h2>
 			</div>
-			<div className={styles.sliderContainer} ref={targetRef}>
+			<div ref={targetRef} className={styles.sliderContainer}>
 				<div
 					className={`${styles.slider} ${
 						isIntersecting ? styles.sliderAnimation : ''

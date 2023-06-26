@@ -29,7 +29,6 @@
 
 .testimonial {
 	flex: 0 0 32%;
-	max-width: 600px;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: calc(base.$gap / 2);
@@ -54,7 +53,7 @@
 // animation
 
 .sliderAnimation {
-	animation: slideAnimation 30s linear infinite;
+	animation: slideAnimation 120s linear infinite;
 }
 
 @keyframes slideAnimation {
@@ -62,8 +61,12 @@
 		transform: translateX(0%);
 	}
 
+	50% {
+		transform: translateX(calc((-32% * 7) - (base.$gap * 10)));
+	}
+
 	100% {
-		transform: translateX(-100%);
+		transform: translateX(0%);
 	}
 }
 
@@ -77,10 +80,38 @@
 	.testimonial {
 		flex: 0 0 48%;
 	}
+
+	// animation
+
+	@keyframes slideAnimation {
+		0% {
+			transform: translateX(0%);
+		}
+
+		50% {
+			transform: translateX(calc((-48% * 8) - (base.$gap * 10)));
+		}
+
+		100% {
+			transform: translateX(0%);
+		}
+	}
 }
 
 @media screen and (max-width: 768px) {
+	.sliderContainer {
+		padding: 0 calc(base.$gap / 2);
+		overflow-x: scroll;
+		padding-bottom: calc(base.$gap / 2);
+	}
+
 	.testimonial {
 		flex: 0 0 100%;
+	}
+
+	// animation
+
+	.sliderAnimation {
+		animation: none;
 	}
 }
