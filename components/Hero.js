@@ -18,7 +18,7 @@ const Hero = () => {
 					<Link href='#' scroll={false} passHref>
 						<Button buttonWhite={true}>Discover Our Services</Button>
 					</Link>
-					<Link href='#' scroll={false} passHref>
+					<Link href='#contact' scroll={false} passHref>
 						<Button buttonWhite={true}>Get In Touch</Button>
 					</Link>
 				</div>

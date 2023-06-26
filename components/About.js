@@ -20,7 +20,7 @@ const About = () => {
 					development, and graphic solutions.
 				</p>
 
-				<Link href='#' scroll={false} passHref>
+				<Link href='#contact' scroll={false} passHref>
 					<Button buttonWhite={false}>Get In Touch</Button>
 				</Link>
 			</div>

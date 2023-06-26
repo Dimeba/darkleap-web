@@ -21,19 +21,23 @@ const ContactForm = () => {
 					type='text'
 					id='fullName'
 					name='fullName'
-					placeholder='FullName'
+					placeholder='Full Name'
 				/>
 
 				<label htmlFor='howCanWeHelp'>How can we help?</label>
-				<select id='howCanWeHelp' name='howCanWeHelp'>
-					<option disabled selected value='kadSeSetim'>
+				<select
+					id='howCanWeHelp'
+					name='howCanWeHelp'
+					defaultValue='defaultOption'
+				>
+					<option disabled hidden value='defaultOption'>
 						How can we help?
 					</option>
-					<option value='kadSeSetim'>I need a website</option>
-					<option value='kadSeSetim'>I need a logo</option>
-					<option value='kadSeSetim'>I need abranding</option>
-					<option value='kadSeSetim'>I need a brochure</option>
-					<option value='kadSeSetim'>Other</option>
+					<option value='I need a website'>I need a website</option>
+					<option value='I need a logo'>I need a logo</option>
+					<option value='I need a branding'>I need a branding</option>
+					<option value='I need a brochure'>I need a brochure</option>
+					<option value='Other'>Other</option>
 				</select>
 
 				<label htmlFor='emailAddress'>Email Address</label>
@@ -41,24 +45,28 @@ const ContactForm = () => {
 					type='text'
 					id='emailAddress'
 					name='emailAddress'
-					placeholder='FullName'
+					placeholder='Email Address'
 				/>
 
 				<label htmlFor='howDidYouHearAboutUs'>How did you hear about us?</label>
 
-				<select id='howDidYouHearAboutUs' name='howDidYouHearAboutUs'>
-					<option disabled selected value='kadSeSetim'>
+				<select
+					id='howDidYouHearAboutUs'
+					name='howDidYouHearAboutUs'
+					defaultValue='defaultOption'
+				>
+					<option disabled hidden value='defaultOption'>
 						How did you hear about us?
 					</option>
-					<option value='kadSeSetim'>Reccomended by someone</option>
-					<option value='kadSeSetim'>On Social Media</option>
-					<option value='kadSeSetim'>On Google</option>
-					<option value='kadSeSetim'>On Upwork</option>
-					<option value='kadSeSetim'>Other</option>
+					<option value='Recommended by someone'>Recommended by someone</option>
+					<option value='On Social Media'>On Social Media</option>
+					<option value='On Google'>On Google</option>
+					<option value='On Upwork'>On Upwork</option>
+					<option value='Other'>Other</option>
 				</select>
 
 				<label htmlFor='message'>Message</label>
-				<textarea id='message' name='message' placeholder='FullName' />
+				<textarea id='message' name='message' placeholder='Message' />
 			</div>
 
 			<Button type='submit'>Send Message</Button>

@@ -70,7 +70,7 @@ const Header = () => {
 							<li onClick={() => closeMenu()}>Our Team</li>
 						</Link>
 
-						<Link href='#' scroll={false} passHref>
+						<Link href='#testimonials' scroll={false} passHref>
 							<li onClick={() => closeMenu()}>Testimonials</li>
 						</Link>
 
@@ -78,7 +78,7 @@ const Header = () => {
 							<li onClick={() => closeMenu()}>Our Work</li>
 						</Link>
 
-						<Link href='#' scroll={false} passHref>
+						<Link href='#contact' scroll={false} passHref>
 							<li onClick={() => closeMenu()}>Get In Touch</li>
 						</Link>
 					</ul>
