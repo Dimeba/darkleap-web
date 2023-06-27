@@ -1,1 +1,130 @@
 @use 'base';
+
+.services {
+	padding-top: calc(base.$margin * 3);
+	padding-left: base.$gap;
+	padding-right: base.$gap;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: base.$gap;
+}
+
+.serviceNav {
+	display: flex;
+	flex-direction: column;
+	gap: calc(base.$gap / 2);
+}
+
+.servicesText {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: base.$gap;
+
+	h2 {
+		margin-bottom: base.$gap;
+	}
+
+	h3 {
+		font-weight: 400;
+		cursor: pointer;
+		margin-bottom: 0;
+		margin-right: 0.625rem;
+	}
+
+	.serviceTitle {
+		display: flex;
+		align-items: center;
+		width: fit-content;
+
+		img {
+			display: none;
+			padding-top: 2px;
+		}
+
+		.leftBorder {
+			width: 4px;
+			height: 1.6rem;
+			background-color: base.$color-main;
+			display: none;
+		}
+	}
+
+	.serviceTitle:hover {
+		h3 {
+			font-weight: 700;
+			margin-left: 0.625rem;
+			margin-right: 1.25rem;
+		}
+
+		img {
+			display: block;
+		}
+
+		.leftBorder {
+			display: block;
+		}
+	}
+
+	.activeService {
+		h3 {
+			font-weight: 700;
+		}
+
+		img {
+			display: block;
+		}
+
+		.leftBorder {
+			display: none;
+		}
+	}
+
+	.serviceDescription {
+		margin-top: base.$margin;
+		margin-bottom: calc(base.$gap / 2);
+	}
+}
+
+.content {
+	grid-column: 3 / 7;
+}
+
+@media screen and (max-width: 1024px) {
+	.servicesText {
+		grid-template-columns: repeat(4, 1fr);
+
+		.serviceDescription {
+			margin-top: base.$gap;
+		}
+	}
+
+	.content {
+		grid-column: span 4;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.services {
+		padding-top: base.$margin;
+		padding-left: calc(base.$gap / 2);
+		padding-right: calc(base.$gap / 2);
+		grid-template-columns: 1fr;
+	}
+
+	.servicesText {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: calc(base.$gap / 2);
+
+		h3 {
+			font-size: 1.2rem;
+		}
+
+		.serviceDescription {
+			margin-top: base.$gap;
+		}
+	}
+
+	.content {
+		grid-column: span 2;
+	}
+}

@@ -15,7 +15,7 @@ const Footer = () => {
 						<li>About Us</li>
 					</Link>
 
-					<Link href='#' scroll={false} passHref>
+					<Link href='#services' scroll={false} passHref>
 						<li>Our Services</li>
 					</Link>
 

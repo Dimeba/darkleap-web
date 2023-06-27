@@ -15,7 +15,7 @@ const Hero = () => {
 				</h1>
 
 				<div className={styles.buttons}>
-					<Link href='#' scroll={false} passHref>
+					<Link href='#services' scroll={false} passHref>
 						<Button buttonWhite={true}>Discover Our Services</Button>
 					</Link>
 					<Link href='#contact' scroll={false} passHref>

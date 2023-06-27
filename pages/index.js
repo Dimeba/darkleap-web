@@ -3,6 +3,7 @@ import Head from 'next/head'
 // sections
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import Services from '@/components/Services'
 import Team from '@/components/Team'
 import Values from '@/components/Values'
 import Testimonials from '@/components/Testimonials'
@@ -29,6 +30,7 @@ export default function Home() {
 			<>
 				<Hero />
 				<About />
+				<Services />
 				<Team />
 				<Values />
 				<Testimonials />
