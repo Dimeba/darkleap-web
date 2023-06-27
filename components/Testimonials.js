@@ -9,7 +9,8 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 const Testimonials = () => {
 	// animated slider
-	const [targetRef, isIntersecting] = useIntersectionObserver()
+	const options = { root: null, rootMargin: '0px', threshold: 0 }
+	const [targetRef, isIntersecting] = useIntersectionObserver(options)
 
 	// There must be 10 testimonials!!!
 

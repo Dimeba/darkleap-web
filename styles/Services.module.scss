@@ -2,8 +2,6 @@
 
 .services {
 	padding-top: calc(base.$margin * 3);
-	padding-left: base.$gap;
-	padding-right: base.$gap;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: base.$gap;
@@ -17,6 +15,7 @@
 
 .servicesText {
 	display: grid;
+	padding-left: base.$gap;
 	grid-template-columns: repeat(6, 1fr);
 	grid-gap: base.$gap;
 
@@ -68,6 +67,7 @@
 	.activeService {
 		h3 {
 			font-weight: 700;
+			margin-left: 0.625rem;
 		}
 
 		img {
@@ -75,7 +75,7 @@
 		}
 
 		.leftBorder {
-			display: none;
+			display: block;
 		}
 	}
 
@@ -87,6 +87,14 @@
 
 .content {
 	grid-column: 3 / 7;
+}
+
+// Gallery
+
+.servicePhoto {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16/10;
 }
 
 @media screen and (max-width: 1024px) {
@@ -101,19 +109,23 @@
 	.content {
 		grid-column: span 4;
 	}
+
+	.servicePhoto {
+		aspect-ratio: 1/1;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.services {
 		padding-top: base.$margin;
-		padding-left: calc(base.$gap / 2);
-		padding-right: calc(base.$gap / 2);
+
 		grid-template-columns: 1fr;
 	}
 
 	.servicesText {
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: calc(base.$gap / 2);
+		padding-left: calc(base.$gap / 2);
 
 		h3 {
 			font-size: 1.2rem;
