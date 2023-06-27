@@ -6,6 +6,7 @@ import About from '@/components/About'
 import Team from '@/components/Team'
 import Values from '@/components/Values'
 import Testimonials from '@/components/Testimonials'
+import Work from '@/components/Work'
 import Contact from '@/components/Contact'
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
 				<Team />
 				<Values />
 				<Testimonials />
+				<Work />
 				<Contact />
 			</>
 		</>

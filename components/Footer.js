@@ -30,7 +30,7 @@ const Footer = () => {
 						<li>Testimonials</li>
 					</Link>
 
-					<Link href='#' scroll={false} passHref>
+					<Link href='#work' scroll={false} passHref>
 						<li>Our Work</li>
 					</Link>
 
