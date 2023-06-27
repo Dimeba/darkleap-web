@@ -4,7 +4,7 @@ import styles from '@/styles/Team.module.scss'
 // components
 import TeamCard from './TeamCard'
 
-const Team = () => {
+const Team = ({ team }) => {
 	return (
 		<section id='team' className={`${styles.team} grid-container`}>
 			<div className={styles.teamText}>
@@ -20,8 +20,17 @@ const Team = () => {
 			</div>
 
 			<div className={styles.teamBios}>
-				<TeamCard />
-				<TeamCard />
+				{team.map(member => {
+					return (
+						<TeamCard
+							key={member.sys.id}
+							name={member.fields.name}
+							title={member.fields.title}
+							linkedin={member.fields.linkedin}
+							image={member.fields.image.fields.file.url}
+						/>
+					)
+				})}
 			</div>
 		</section>
 	)

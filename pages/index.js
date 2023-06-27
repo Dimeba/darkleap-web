@@ -10,7 +10,34 @@ import Testimonials from '@/components/Testimonials'
 import Work from '@/components/Work'
 import Contact from '@/components/Contact'
 
-export default function Home() {
+// contentful
+
+import { createClient } from 'contentful'
+
+export async function getStaticProps() {
+	const client = createClient({
+		space: process.env.space,
+		accessToken: process.env.accessToken
+	})
+
+	const service = await client.getEntries({
+		content_type: 'service'
+	})
+
+	const team = await client.getEntries({
+		content_type: 'team',
+		order: 'sys.createdAt'
+	})
+
+	return {
+		props: {
+			services: service.items,
+			teamMembers: team.items
+		}
+	}
+}
+
+export default function Home({ services, teamMembers }) {
 	return (
 		<>
 			<Head>
@@ -30,8 +57,8 @@ export default function Home() {
 			<>
 				<Hero />
 				<About />
-				<Services />
-				<Team />
+				<Services services={services} />
+				<Team team={teamMembers} />
 				<Values />
 				<Testimonials />
 				<Work />
