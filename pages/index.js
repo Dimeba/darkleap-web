@@ -29,15 +29,20 @@ export async function getStaticProps() {
 		order: 'sys.createdAt'
 	})
 
+	const testimonial = await client.getEntries({
+		content_type: 'testimonial'
+	})
+
 	return {
 		props: {
 			services: service.items,
-			teamMembers: team.items
+			teamMembers: team.items,
+			testimonials: testimonial.items
 		}
 	}
 }
 
-export default function Home({ services, teamMembers }) {
+export default function Home({ services, teamMembers, testimonials }) {
 	return (
 		<>
 			<Head>
@@ -60,7 +65,7 @@ export default function Home({ services, teamMembers }) {
 				<Services services={services} />
 				<Team team={teamMembers} />
 				<Values />
-				<Testimonials />
+				<Testimonials testimonials={testimonials} />
 				<Work />
 				<Contact />
 			</>

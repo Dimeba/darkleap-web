@@ -27,7 +27,7 @@ const Team = ({ team }) => {
 							name={member.fields.name}
 							title={member.fields.title}
 							linkedin={member.fields.linkedin}
-							image={member.fields.image.fields.file.url}
+							image={'https:' + member.fields.image.fields.file.url}
 						/>
 					)
 				})}

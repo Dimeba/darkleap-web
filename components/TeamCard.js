@@ -11,7 +11,7 @@ const TeamCard = props => {
 		<div className={styles.bio}>
 			<div className={styles.teamMemberPhoto}>
 				<Image
-					src={'https:' + props.image}
+					src={props.image}
 					fill
 					sizes='(max-width: 768px) 100vw, 768px'
 					alt={`Photo of ${props.name}`}

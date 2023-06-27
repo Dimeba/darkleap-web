@@ -4,12 +4,12 @@ import styles from '@/styles/Testimonials.module.scss'
 // components
 import Image from 'next/image'
 
-const TestimonialCard = () => {
+const TestimonialCard = props => {
 	return (
 		<div className={styles.testimonial}>
 			<div className={styles.testimonialPhoto}>
 				<Image
-					src='/square-placeholder.jpg'
+					src={props.image}
 					fill
 					sizes='(max-width: 768px) 100vw, 768px'
 					alt='Team Member Photo'
@@ -18,17 +18,11 @@ const TestimonialCard = () => {
 			</div>
 
 			<div className={styles.testimonialText}>
-				<h3>Sign, center console (pedestal)</h3>
-				<p>
-					"I was thoroughly impressed with his work quality and professionalism.
-					He delivered an eye-catching sign design and realistic textures
-					efficiently, while maintaining excellent communication throughout the
-					process. I highly recommend this talented designer for anyone seeking
-					creative and professional design and 3D modeling services."
-				</p>
+				<h3>{props.title}</h3>
+				<p>{props.text}</p>
 
-				<h4>Jeff Goin</h4>
-				<p>Reaction Simulation</p>
+				<h4>{props.client}</h4>
+				<p>{props.company}</p>
 			</div>
 		</div>
 	)

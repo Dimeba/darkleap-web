@@ -7,7 +7,7 @@ import TestimonialCard from './TestimonialCard'
 // hooks
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
 	// animated slider
 	const options = { root: null, rootMargin: '0px', threshold: 0 }
 	const [targetRef, isIntersecting] = useIntersectionObserver(options)
@@ -25,16 +25,18 @@ const Testimonials = () => {
 						isIntersecting ? styles.sliderAnimation : ''
 					}`}
 				>
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
-					<TestimonialCard />
+					{testimonials.map(testimonial => {
+						return (
+							<TestimonialCard
+								key={testimonial.sys.id}
+								title={testimonial.fields.title}
+								text={testimonial.fields.text}
+								client={testimonial.fields.client}
+								company={testimonial.fields.company}
+								image={'https:' + testimonial.fields.image.fields.file.url}
+							/>
+						)
+					})}
 				</div>
 			</div>
 		</section>
