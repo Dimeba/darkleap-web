@@ -13,10 +13,18 @@
 }
 
 .heroContent {
-	grid-column: 3 / 10;
+	width: 90%;
+	max-width: 1440px;
+	height: 100vh;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: base.$gap;
+
+	h1 {
+		max-width: 800px;
+	}
 }
 
 .buttons {
@@ -26,13 +34,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.heroContent {
-		grid-column: 1 / 10;
-	}
 }
 
 @media screen and (max-width: 768px) {
-	.heroContent {
-		grid-column: 1 / 3;
-	}
 }

@@ -1,14 +1,14 @@
 @use 'base';
 
 .contactText {
-	grid-column: 3 / 6;
+	grid-column: span 5;
 	display: flex;
 	flex-direction: column;
 	gap: calc(base.$gap / 2);
 }
 
 .contact form {
-	grid-column: 7 / 11;
+	grid-column: 7 / 13;
 
 	label {
 		display: none;
@@ -61,11 +61,16 @@
 
 @media screen and (max-width: 1024px) {
 	.contactText {
-		grid-column: 1 / 5;
+		grid-column: span 4;
 	}
 
 	.contact form {
 		grid-column: span 4;
+	}
+
+	.formContainer {
+		display: flex;
+		flex-direction: column;
 	}
 }
 

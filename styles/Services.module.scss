@@ -4,7 +4,6 @@
 	padding-top: calc(base.$margin * 3);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap: base.$gap;
 }
 
 .serviceNav {
@@ -14,10 +13,10 @@
 }
 
 .servicesText {
-	display: grid;
-	padding-left: base.$gap;
-	grid-template-columns: repeat(6, 1fr);
-	grid-gap: base.$gap;
+	width: 90%;
+	max-width: 720px;
+	margin-left: auto;
+	padding-right: base.$gap;
 
 	h2 {
 		margin-bottom: base.$gap;
@@ -85,47 +84,44 @@
 	}
 }
 
-.content {
-	grid-column: 3 / 7;
-}
-
 // Gallery
 
 .servicePhoto {
 	position: relative;
 	width: 100%;
-	aspect-ratio: 16/10;
+	height: 100%;
 }
 
 @media screen and (max-width: 1024px) {
+	.services {
+		grid-template-columns: 1fr;
+	}
+
 	.servicesText {
-		grid-template-columns: repeat(4, 1fr);
+		margin-right: auto;
+		margin-bottom: base.$gap;
+		padding: 0;
+		max-width: none;
 
 		.serviceDescription {
 			margin-top: base.$gap;
 		}
 	}
 
-	.content {
-		grid-column: span 4;
-	}
-
 	.servicePhoto {
-		aspect-ratio: 1/1;
+		aspect-ratio: 16/10;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	.services {
 		padding-top: base.$margin;
-
-		grid-template-columns: 1fr;
 	}
 
 	.servicesText {
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: calc(base.$gap / 2);
-		padding-left: calc(base.$gap / 2);
+		margin-right: auto;
+		margin-bottom: base.$gap;
+		padding: 0;
 
 		h3 {
 			font-size: 1.2rem;
@@ -134,9 +130,5 @@
 		.serviceDescription {
 			margin-top: base.$gap;
 		}
-	}
-
-	.content {
-		grid-column: span 2;
 	}
 }

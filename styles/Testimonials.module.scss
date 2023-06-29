@@ -2,20 +2,9 @@
 
 .testimonials {
 	h2 {
-		grid-column: 3 / 5;
 		margin-bottom: base.$gap;
 	}
 }
-
-// .slider {
-// 	display: grid;
-// 	grid-template-columns: repeat(12, 1fr);
-// 	grid-gap: base.$gap;
-// 	grid-auto-flow: column;
-// 	grid-auto-columns: 4fr;
-// 	padding-left: base.$gap;
-// 	padding-right: base.$gap;
-// }
 
 .sliderContainer {
 	padding: 0 base.$gap;

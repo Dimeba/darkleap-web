@@ -22,6 +22,7 @@ const ContactForm = () => {
 					id='fullName'
 					name='fullName'
 					placeholder='Full Name'
+					required
 				/>
 
 				<label htmlFor='howCanWeHelp'>How can we help?</label>
@@ -46,6 +47,7 @@ const ContactForm = () => {
 					id='emailAddress'
 					name='emailAddress'
 					placeholder='Email Address'
+					required
 				/>
 
 				<label htmlFor='howDidYouHearAboutUs'>How did you hear about us?</label>
@@ -66,7 +68,7 @@ const ContactForm = () => {
 				</select>
 
 				<label htmlFor='message'>Message</label>
-				<textarea id='message' name='message' placeholder='Message' />
+				<textarea id='message' name='message' placeholder='Message' required />
 			</div>
 
 			<Button type='submit'>Send Message</Button>
