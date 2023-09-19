@@ -4,16 +4,18 @@ import styles from '@/styles/Work.module.scss'
 // components
 import ProjectCard from './ProjectCard'
 
-const Work = () => {
+const Work = ({ projects }) => {
 	return (
 		<section className={styles.work}>
 			<div id='work' className={styles.projects}>
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
+				{projects.map(project => (
+					<ProjectCard
+						key={project.sys.id}
+						title={project.fields.title}
+						photo={project.fields.photo.fields.file.url}
+						link={project.fields.link}
+					/>
+				))}
 			</div>
 			<div className={styles.title}>
 				<h2>

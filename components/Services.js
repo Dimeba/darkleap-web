@@ -55,6 +55,8 @@ const Services = ({ services }) => {
 				<Image
 					src={'https:' + activeService.fields.image.fields.file.url}
 					fill
+					quality={100}
+					style={{ objectFit: 'cover' }}
 					sizes='(max-width: 768px) 100vw, 768px'
 					alt='Team Member Photo'
 					priority={false}
