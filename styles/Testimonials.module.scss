@@ -18,14 +18,13 @@
 
 .testimonial {
 	flex: 0 0 32%;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: calc(base.$gap / 2);
+	display: flex;
+	gap: base.$gap;
 }
 
 .testimonialPhoto {
 	position: relative;
-	width: 100%;
+	width: 100px;
 	aspect-ratio: 1/1;
 }
 

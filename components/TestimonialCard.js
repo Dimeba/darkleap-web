@@ -7,15 +7,15 @@ import Image from 'next/image'
 const TestimonialCard = props => {
 	return (
 		<div className={styles.testimonial}>
-			<div className={styles.testimonialPhoto}>
-				<Image
-					src={props.image}
-					fill
-					sizes='(max-width: 768px) 100vw, 768px'
-					alt='Team Member Photo'
-					priority={false}
-				/>
-			</div>
+			<Image
+				src={props.image}
+				sizes='(max-width: 768px) 100vw, 768px'
+				alt='Team Member Photo'
+				priority={false}
+				width={100}
+				height={100}
+				style={{ objectFit: 'cover' }}
+			/>
 
 			<div className={styles.testimonialText}>
 				<h3>{props.title}</h3>
