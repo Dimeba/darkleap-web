@@ -10,7 +10,7 @@ const Team = ({ team }) => {
 			<div className={styles.teamText}>
 				<h2>Our Team</h2>
 				<p>
-					DarkLeap was established by a highly skilled developer and a creative
+					Dark Leap was established by a highly skilled developer and a creative
 					designer, uniting their expertise to deliver exemplary outcomes. We
 					embody a passion for excellence, specializing in web design,
 					development, and graphic solutions. Meticulous attention to detail,

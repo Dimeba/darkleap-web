@@ -9,6 +9,21 @@ export default function Document() {
 					src='https://shown.io/metrics/Lj3bZLpa3l'
 					type='text/javascript'
 				></script>
+
+				{/* Google Analytics */}
+				<script
+					async
+					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+					strategy='afterInteractive'
+				/>
+				<script>
+					{`
+            			window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+            			gtag('js', new Date());
+            			gtag('config', '${process.env.GOOGLE_ANALYTICS}');
+          			`}
+				</script>
 			</Head>
 			<body>
 				<Main />

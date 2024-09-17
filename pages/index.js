@@ -56,10 +56,10 @@ export default function Home({
 	return (
 		<>
 			<Head>
-				<title>DarkLeap | Web Design, Web Development, Graphic Design</title>
+				<title>Dark Leap | Web Design, Web Development, Graphic Design</title>
 				<meta
 					name='description'
-					content='DarkLeap | From Concept to Success: Partnering for Exceptional Results | We specialize in web design, development, and graphic solutions. From captivating websites to stunning visual identities, we deliver exceptional results that exceed expectations. Collaborate with our expert team to elevate your online presence and achieve your business goals.'
+					content='Dark Leap | From Concept to Success: Partnering for Exceptional Results | We specialize in web design, development, and graphic solutions. From captivating websites to stunning visual identities, we deliver exceptional results that exceed expectations. Collaborate with our expert team to elevate your online presence and achieve your business goals.'
 				/>
 				<meta
 					name='keywords'

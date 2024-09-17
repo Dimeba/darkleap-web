@@ -45,7 +45,7 @@ const Footer = () => {
 						<li>
 							<a href='mailto:office@darkleap.dev'>office@darkleap.dev</a>
 						</li>
-						<li>Instagram</li>
+						{/* <li>Instagram</li> */}
 					</ul>
 				</div>
 				<div className={`${styles.logoCredit} ${styles.footerColumn}`}>
@@ -61,7 +61,7 @@ const Footer = () => {
 						</div>
 					</Link>
 					<p className={styles.credit}>
-						© {year} DarkLeap. All rights reserved.
+						© {year} Dark Leap. All rights reserved.
 					</p>
 				</div>
 			</div>

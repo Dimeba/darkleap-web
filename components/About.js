@@ -11,7 +11,7 @@ const About = () => {
 			<h2>About Us</h2>
 			<div className={styles.aboutText}>
 				<p>
-					At DarkLeap, we thrive on every aspect of your project, from research
+					At Dark Leap, we thrive on every aspect of your project, from research
 					and design to development, testing, and maintenance. We are passionate
 					about delivering the highest quality products while caring deeply
 					about the success of our clients. Building great relationships is our
