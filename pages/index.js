@@ -75,7 +75,7 @@ export default function Home({
 				<Services services={services} />
 				<Team team={teamMembers} />
 				<Values />
-				<Testimonials testimonials={testimonials} />
+				{/* <Testimonials testimonials={testimonials} /> */}
 				<Work projects={projects} />
 				<Contact />
 			</>
