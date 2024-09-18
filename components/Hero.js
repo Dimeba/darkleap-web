@@ -3,8 +3,10 @@ import styles from '@/styles/Hero.module.scss'
 
 // components
 import Button from './Button'
-import Link from 'next/link'
 import Image from 'next/image'
+
+// GA
+import * as gtag from '@/lib/gtag'
 
 const Hero = () => {
 	return (
@@ -27,12 +29,22 @@ const Hero = () => {
 				<h1>From Concept to Success: Partnering for Exceptional Results</h1>
 
 				<div className={styles.buttons}>
-					<Link href='#services' scroll={false} passHref>
-						<Button buttonWhite={true}>Discover Our Services</Button>
-					</Link>
-					<Link href='#contact' scroll={false} passHref>
-						<Button buttonWhite={true}>Get In Touch</Button>
-					</Link>
+					<a href='#services' aria-label='Link to services section'>
+						<Button
+							buttonWhite={true}
+							event={() => gtag.buttonEvent('Services button on hero')}
+						>
+							Discover Our Services
+						</Button>
+					</a>
+					<a href='#contact' aria-label='Link to contact form'>
+						<Button
+							buttonWhite={true}
+							event={() => gtag.buttonEvent('Get In Touch button on hero')}
+						>
+							Get In Touch
+						</Button>
+					</a>
 				</div>
 			</div>
 		</div>

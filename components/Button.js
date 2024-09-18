@@ -1,33 +1,35 @@
 // styles
 import styles from '@/styles/Button.module.scss'
 
-const Button = props => {
+const Button = ({ type, event, buttonWhite, children }) => {
 	return (
-		<button className={styles.button} type={props.type}>
+		<button
+			className={styles.button}
+			type={type}
+			onClick={event ? event : undefined}
+		>
 			<div
 				className={
-					props.buttonWhite
-						? styles.preButtonLineWhite
-						: styles.preButtonLineBlack
+					buttonWhite ? styles.preButtonLineWhite : styles.preButtonLineBlack
 				}
 			></div>
 			<p
 				className={
-					props.buttonWhite ? styles.buttonTextWhite : styles.buttonTextBlack
+					buttonWhite ? styles.buttonTextWhite : styles.buttonTextBlack
 				}
 			>
-				{props.children}
+				{children}
 			</p>
 
 			<div className={styles.arrow}>
 				<div
 					className={
-						props.buttonWhite ? styles.arrowLineWhite : styles.arrowLineBlack
+						buttonWhite ? styles.arrowLineWhite : styles.arrowLineBlack
 					}
 				></div>
 				<div
 					className={
-						props.buttonWhite ? styles.arrowHeadWhite : styles.arrowHeadBlack
+						buttonWhite ? styles.arrowHeadWhite : styles.arrowHeadBlack
 					}
 				></div>
 			</div>

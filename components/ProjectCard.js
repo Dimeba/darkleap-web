@@ -5,10 +5,16 @@ import styles from '@/styles/Work.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// GA
+import * as gtag from '@/lib/gtag'
+
 const ProjectCard = ({ title, photo, link }) => {
 	return (
-		<Link href={link} scroll={false} passHref>
-			<div className={styles.project}>
+		<Link href={link} scroll={false} target='_blank' passHref>
+			<div
+				className={styles.project}
+				onClick={() => gtag.buttonEvent(`${title} project button`)}
+			>
 				<div className={styles.projectThumbnail}>
 					<Image
 						src={'https:' + photo}

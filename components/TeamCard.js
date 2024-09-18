@@ -6,6 +6,9 @@ import Button from './Button'
 import Link from 'next/link'
 import Image from 'next/image'
 
+// GA
+import * as gtag from '@/lib/gtag'
+
 const TeamCard = props => {
 	return (
 		<div className={styles.bio}>
@@ -23,7 +26,14 @@ const TeamCard = props => {
 				<h3>{props.name}</h3>
 				<p className={styles.teamMemberTitle}>{props.title}</p>
 				<Link href={props.linkedin} scroll={false} passHref>
-					<Button buttonWhite={false}>LinkedIn</Button>
+					<Button
+						buttonWhite={false}
+						event={() =>
+							gtag.buttonEvent(`${props.name} LinkedIn profile button`)
+						}
+					>
+						LinkedIn
+					</Button>
 				</Link>
 			</div>
 		</div>

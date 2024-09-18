@@ -27,9 +27,9 @@ const Footer = () => {
 				</div>
 				<div className={styles.footerColumn}>
 					<ul className={styles.footerMenu}>
-						<Link href='#testimonials' scroll={false} passHref>
+						{/* <Link href='#testimonials' scroll={false} passHref>
 							<li>Testimonials</li>
-						</Link>
+						</Link> */}
 
 						<Link href='#work' scroll={false} passHref>
 							<li>Our Work</li>

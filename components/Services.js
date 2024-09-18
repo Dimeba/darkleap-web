@@ -1,15 +1,41 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 // styles
 import styles from '@/styles/Services.module.scss'
 
 // components
 import Button from './Button'
-import Link from 'next/link'
 import Image from 'next/image'
+
+// GA
+import * as gtag from '@/lib/gtag'
 
 const Services = ({ services }) => {
 	const [activeService, setActiveService] = useState(services[0])
+	const targetRef = useRef(null)
+
+	// scroll to targetRef when service is clicked on mobile
+	const handleScroll = () => {
+		const mobileBreakpoint = 768
+
+		if (window.innerWidth <= mobileBreakpoint) {
+			const offset = 78
+
+			const targetPosition =
+				targetRef.current.getBoundingClientRect().top + window.pageYOffset
+
+			window.scrollTo({
+				top: targetPosition - offset,
+				behavior: 'smooth'
+			})
+		}
+	}
+
+	const handleServiceClick = (index, serviceTitle) => {
+		setActiveService(services[index])
+		gtag.buttonEvent(`${serviceTitle} button on services section`)
+		handleScroll()
+	}
 
 	return (
 		<section id='services' className={styles.services}>
@@ -27,7 +53,11 @@ const Services = ({ services }) => {
 								}`}
 							>
 								<div className={styles.leftBorder}></div>
-								<h3 onClick={() => setActiveService(services[index])}>
+								<h3
+									onClick={() =>
+										handleServiceClick(index, service.fields.title)
+									}
+								>
 									{service.fields.title}
 								</h3>
 								<Image
@@ -42,16 +72,27 @@ const Services = ({ services }) => {
 					})}
 				</div>
 
-				<p className={styles.serviceDescription}>
-					{activeService.fields.description}
-				</p>
+				<div className={styles.desktop}>
+					<p className={styles.serviceDescription}>
+						{activeService.fields.description}
+					</p>
 
-				<Link href='#contact' scroll={false} passHref>
-					<Button buttonWhite={false}>Order Service</Button>
-				</Link>
+					<a href='#contact' aria-label='Link to contact form'>
+						<Button
+							buttonWhite={false}
+							event={() =>
+								gtag.buttonEvent(
+									`Get In Touch button on ${activeService.fields.title} service`
+								)
+							}
+						>
+							Order Service
+						</Button>
+					</a>
+				</div>
 			</div>
 
-			<div className={styles.servicePhoto}>
+			<div className={styles.servicePhoto} ref={targetRef}>
 				<Image
 					src={'https:' + activeService.fields.image.fields.file.url}
 					fill
@@ -61,6 +102,25 @@ const Services = ({ services }) => {
 					alt='Team Member Photo'
 					priority={false}
 				/>
+			</div>
+
+			<div className={`${styles.servicesText} ${styles.mobile}`}>
+				<p className={styles.serviceDescription}>
+					{activeService.fields.description}
+				</p>
+
+				<a href='#contact' aria-label='Link to contact form'>
+					<Button
+						buttonWhite={false}
+						event={() =>
+							gtag.buttonEvent(
+								`Get In Touch button on  ${activeService.fields.title} service`
+							)
+						}
+					>
+						Order Service
+					</Button>
+				</a>
 			</div>
 		</section>
 	)

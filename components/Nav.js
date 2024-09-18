@@ -70,9 +70,9 @@ const Header = () => {
 							<li onClick={() => closeMenu()}>Our Team</li>
 						</Link>
 
-						<Link href='#testimonials' scroll={false} passHref>
+						{/* <Link href='#testimonials' scroll={false} passHref>
 							<li onClick={() => closeMenu()}>Testimonials</li>
-						</Link>
+						</Link> */}
 
 						<Link href='#work' scroll={false} passHref>
 							<li onClick={() => closeMenu()}>Our Work</li>

@@ -92,6 +92,10 @@
 	height: 100%;
 }
 
+.mobile {
+	display: none;
+}
+
 @media screen and (max-width: 1024px) {
 	.services {
 		grid-template-columns: 1fr;
@@ -130,5 +134,13 @@
 		.serviceDescription {
 			margin-top: base.$gap;
 		}
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
 	}
 }

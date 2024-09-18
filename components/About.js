@@ -3,7 +3,9 @@ import styles from '@/styles/About.module.scss'
 
 // components
 import Button from './Button'
-import Link from 'next/link'
+
+// GA
+import * as gtag from '@/lib/gtag'
 
 const About = () => {
 	return (
@@ -20,9 +22,16 @@ const About = () => {
 					development, and graphic solutions.
 				</p>
 
-				<Link href='#contact' scroll={false} passHref>
-					<Button buttonWhite={false}>Get In Touch</Button>
-				</Link>
+				<a href='#contact' aria-label='Link to contact form'>
+					<Button
+						buttonWhite={false}
+						event={() =>
+							gtag.buttonEvent('Get In Touch button on about us section')
+						}
+					>
+						Get In Touch
+					</Button>
+				</a>
 			</div>
 		</section>
 	)
