@@ -1,17 +1,16 @@
 @use 'base';
 
 .footer {
-	margin-top: calc(base.$margin * 3);
-	background-color: base.$color-main;
-
 	* {
 		color: white;
 	}
 }
 
 .footerContainer {
+	border-top: 1px solid base.$color-gray;
 	padding-top: base.$margin !important;
 	padding-bottom: base.$margin !important;
+	margin: 0 auto;
 }
 
 .footerColumn {

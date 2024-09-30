@@ -1,7 +1,6 @@
 @use 'base';
 
 .services {
-	padding-top: calc(base.$margin * 3);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
@@ -42,7 +41,7 @@
 		.leftBorder {
 			width: 4px;
 			height: 1.6rem;
-			background-color: base.$color-main;
+			background-color: base.$color-green;
 			display: none;
 		}
 	}
@@ -52,6 +51,7 @@
 			font-weight: 700;
 			margin-left: 0.625rem;
 			margin-right: 1.25rem;
+			color: base.$color-green;
 		}
 
 		img {
@@ -67,6 +67,7 @@
 		h3 {
 			font-weight: 700;
 			margin-left: 0.625rem;
+			color: base.$color-green;
 		}
 
 		img {

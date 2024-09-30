@@ -52,6 +52,7 @@
 
 	ul {
 		display: flex;
+		align-items: center;
 		gap: 2.5rem;
 
 		li {
@@ -80,6 +81,17 @@
 	.hidden {
 		display: flex;
 	}
+}
+
+.contactButton {
+	background-color: base.$color-green;
+	color: base.$color-main;
+	padding: 0.5rem 1rem;
+	border-radius: 2rem;
+}
+
+.contactButton:hover::after {
+	width: 0 !important;
 }
 
 // Hamburger

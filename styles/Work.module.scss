@@ -1,7 +1,6 @@
 @use 'base';
 
 .work {
-	padding-top: calc(base.$margin * 3);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: base.$gap;

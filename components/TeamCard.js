@@ -27,7 +27,7 @@ const TeamCard = props => {
 				<p className={styles.teamMemberTitle}>{props.title}</p>
 				<Link href={props.linkedin} scroll={false} passHref>
 					<Button
-						buttonWhite={false}
+						transparent
 						event={() =>
 							gtag.buttonEvent(`${props.name} LinkedIn profile button`)
 						}

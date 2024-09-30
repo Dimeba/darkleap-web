@@ -26,17 +26,24 @@ const Hero = () => {
 
 			{/* Content */}
 			<div className={styles.heroContent}>
-				<h1>From Concept to Success: Partnering for Exceptional Results</h1>
+				<div>
+					<h1>From Concept to Success: Partnering for Exceptional Results</h1>
+
+					<h3>
+						Web Development, Branding & Visual Identity, Marketing Material
+						Design
+					</h3>
+				</div>
 
 				<div className={styles.buttons}>
-					<a href='#services' aria-label='Link to services section'>
+					{/* <a href='#services' aria-label='Link to services section'>
 						<Button
 							buttonWhite={true}
 							event={() => gtag.buttonEvent('Services button on hero')}
 						>
 							Discover Our Services
 						</Button>
-					</a>
+					</a> */}
 					<a href='#contact' aria-label='Link to contact form'>
 						<Button
 							buttonWhite={true}

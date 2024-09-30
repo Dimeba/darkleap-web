@@ -79,7 +79,9 @@ const Header = () => {
 						</Link>
 
 						<Link href='#contact' scroll={false} passHref>
-							<li onClick={() => closeMenu()}>Get In Touch</li>
+							<li className={styles.contactButton} onClick={() => closeMenu()}>
+								Get In Touch
+							</li>
 						</Link>
 					</ul>
 				</div>

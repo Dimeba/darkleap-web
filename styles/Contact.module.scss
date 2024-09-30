@@ -23,10 +23,10 @@
 		padding: 0.625rem 0;
 		margin: 0;
 		border: none;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid base.$color-gray;
 		border-radius: 0;
 		background-color: transparent;
-		color: #434343;
+		// color: #434343;
 		font-family: inherit;
 		font-size: inherit;
 		line-height: inherit;
@@ -54,7 +54,7 @@
 
 	input::placeholder,
 	textarea::placeholder {
-		color: #434343;
+		color: white;
 		opacity: 1;
 	}
 }

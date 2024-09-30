@@ -1,36 +1,48 @@
 // styles
 import styles from '@/styles/Button.module.scss'
 
-const Button = ({ type, event, buttonWhite, children }) => {
+const Button = ({ type, event, transparent, children }) => {
 	return (
 		<button
 			className={styles.button}
 			type={type}
 			onClick={event ? event : undefined}
+			style={
+				!transparent
+					? {
+							backgroundColor: '#b4e300',
+							padding: '1rem 1rem 1rem 1.5rem',
+							borderRadius: '2rem'
+					  }
+					: null
+			}
 		>
 			<div
-				className={
-					buttonWhite ? styles.preButtonLineWhite : styles.preButtonLineBlack
-				}
+				className={styles.preButtonLine}
+				style={{ borderTopColor: transparent ? '#b4e300' : '#16171a' }}
 			></div>
 			<p
-				className={
-					buttonWhite ? styles.buttonTextWhite : styles.buttonTextBlack
-				}
+				className={styles.buttonText}
+				style={{
+					color: transparent ? '#b4e300' : '#16171a'
+				}}
 			>
 				{children}
 			</p>
 
 			<div className={styles.arrow}>
 				<div
-					className={
-						buttonWhite ? styles.arrowLineWhite : styles.arrowLineBlack
-					}
+					className={styles.arrowLine}
+					style={{
+						borderTopColor: transparent ? '#b4e300' : '#16171a'
+					}}
 				></div>
 				<div
-					className={
-						buttonWhite ? styles.arrowHeadWhite : styles.arrowHeadBlack
-					}
+					className={styles.arrowHead}
+					style={{
+						borderTopColor: transparent ? '#b4e300' : '#16171a',
+						borderRightColor: transparent ? '#b4e300' : '#16171a'
+					}}
 				></div>
 			</div>
 		</button>
