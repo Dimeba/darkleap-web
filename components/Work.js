@@ -6,8 +6,8 @@ import ProjectCard from './ProjectCard'
 
 const Work = ({ projects }) => {
 	return (
-		<section className={styles.work}>
-			<div id='work' className={styles.projects}>
+		<section className={styles.work} id='work'>
+			<div className={styles.projects}>
 				{projects.map(project => (
 					<ProjectCard
 						key={project.sys.id}

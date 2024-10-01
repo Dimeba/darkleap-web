@@ -43,7 +43,7 @@ const Header = () => {
 				className={isIntersecting ? styles.headerTop : styles.headerScroll}
 			>
 				<div className={styles.nav}>
-					<Link href='/' scroll={false} passHref>
+					<a href='/'>
 						<div className={styles.logo}>
 							<Image
 								src={isIntersecting ? 'logo-white.svg' : 'logo-dark.svg'}
@@ -53,36 +53,41 @@ const Header = () => {
 								priority={true}
 							/>
 						</div>
-					</Link>
+					</a>
 
 					<Hamburger toggleMenu={toggleMenu} menuClass={menuClass} />
 
 					<ul className={hiddenMenuClass}>
-						<Link href='#about-us' scroll={false} passHref>
+						<a href='#about-us'>
 							<li onClick={() => closeMenu()}>About Us</li>
-						</Link>
+						</a>
 
-						<Link href='#services' scroll={false} passHref>
+						<a href='#services'>
 							<li onClick={() => closeMenu()}>Our Services</li>
-						</Link>
+						</a>
 
-						<Link href='#team' scroll={false} passHref>
+						<a href='#team'>
 							<li onClick={() => closeMenu()}>Our Team</li>
-						</Link>
+						</a>
 
-						{/* <Link href='#testimonials' scroll={false} passHref>
+						{/* <a href='#testimonials'  >
 							<li onClick={() => closeMenu()}>Testimonials</li>
-						</Link> */}
+						</a> */}
 
-						<Link href='#work' scroll={false} passHref>
+						<a href='#work'>
 							<li onClick={() => closeMenu()}>Our Work</li>
-						</Link>
+						</a>
 
-						<Link href='#contact' scroll={false} passHref>
-							<li className={styles.contactButton} onClick={() => closeMenu()}>
-								Get In Touch
+						<a href='#contact'>
+							<li
+								className={`${styles.contactButton} ${
+									!isIntersecting ? styles.animatedButton : ''
+								}`}
+								onClick={() => closeMenu()}
+							>
+								Contact
 							</li>
-						</Link>
+						</a>
 					</ul>
 				</div>
 			</header>

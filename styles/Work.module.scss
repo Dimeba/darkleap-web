@@ -5,6 +5,7 @@
 	grid-template-columns: 1fr 1fr;
 	grid-gap: base.$gap;
 	align-items: center;
+	scroll-margin: 8rem;
 }
 
 .projects {
@@ -69,7 +70,6 @@
 
 @media screen and (max-width: 768px) {
 	.work {
-		padding-top: base.$margin;
 		grid-template-columns: 1fr;
 	}
 

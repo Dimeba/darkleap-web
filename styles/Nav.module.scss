@@ -26,7 +26,7 @@
 			}
 
 			li:after {
-				background: base.$color-main;
+				background: base.$color-green;
 			}
 		}
 	}
@@ -58,6 +58,8 @@
 		li {
 			font-size: 0.875rem;
 			position: relative;
+			text-transform: uppercase;
+			letter-spacing: 0.05rem;
 		}
 
 		li:after {
@@ -66,8 +68,9 @@
 			width: 0;
 			height: 2px;
 			right: 0;
+			bottom: -5px;
 			display: block;
-			background: white;
+			background: base.$color-green;
 			transition: width 0.2s ease;
 			-webkit-transition: width 0.2s ease;
 		}
@@ -86,12 +89,32 @@
 .contactButton {
 	background-color: base.$color-green;
 	color: base.$color-main;
-	padding: 0.5rem 1rem;
+	padding: 1rem 1.5rem;
 	border-radius: 2rem;
+	font-weight: 600;
 }
 
 .contactButton:hover::after {
 	width: 0 !important;
+}
+
+//
+.animatedButton {
+	animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 // Hamburger
@@ -198,6 +221,10 @@
 		.hidden {
 			display: none;
 		}
+	}
+
+	.contactButton {
+		margin-top: 1rem;
 	}
 }
 

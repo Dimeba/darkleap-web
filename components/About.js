@@ -22,7 +22,7 @@ const About = () => {
 					development, and graphic solutions.
 				</p>
 
-				<a href='#contact' aria-label='Link to contact form'>
+				{/* <a href='#contact' aria-label='Link to contact form'>
 					<Button
 						buttonWhite={false}
 						event={() =>
@@ -31,7 +31,7 @@ const About = () => {
 					>
 						Get In Touch
 					</Button>
-				</a>
+				</a> */}
 			</div>
 		</section>
 	)

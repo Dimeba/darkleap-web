@@ -23,7 +23,7 @@ const TeamCard = props => {
 			</div>
 
 			<div>
-				<h3>{props.name}</h3>
+				<h4>{props.name}</h4>
 				<p className={styles.teamMemberTitle}>{props.title}</p>
 				<Link href={props.linkedin} scroll={false} passHref>
 					<Button

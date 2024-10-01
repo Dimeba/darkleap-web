@@ -3,6 +3,7 @@
 .services {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	scroll-margin: 8rem;
 }
 
 .serviceNav {
@@ -82,6 +83,7 @@
 	.serviceDescription {
 		margin-top: base.$margin;
 		margin-bottom: calc(base.$gap / 2);
+		text-wrap: balance;
 	}
 }
 
@@ -119,10 +121,6 @@
 }
 
 @media screen and (max-width: 768px) {
-	.services {
-		padding-top: base.$margin;
-	}
-
 	.servicesText {
 		margin-right: auto;
 		margin-bottom: base.$gap;

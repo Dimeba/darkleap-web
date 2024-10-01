@@ -1,15 +1,38 @@
 @use 'base';
 
 .hero {
-	height: 100vh;
+	// height: 100vh;
+	// min-height: fit-content;
 	margin: 0;
-	padding-top: 0;
+
 	align-items: center;
 	position: relative;
 
 	* {
 		color: white;
 	}
+
+	video {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: -2;
+		background-color: black;
+		object-fit: cover;
+		opacity: 0.25;
+	}
+}
+
+.videoOverlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0),
+		base.$color-main
+	);
 }
 
 .image {
@@ -17,13 +40,15 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background-color: black;
+	background-color: base.$color-main;
 }
 
 .heroContent {
 	width: 90%;
 	max-width: 1440px;
 	height: 100vh;
+	padding: 8rem 0;
+	min-height: fit-content;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -31,7 +56,7 @@
 	gap: base.$gap;
 
 	h1 {
-		max-width: 800px;
+		// max-width: 800px;
 		margin-bottom: 2rem;
 	}
 
