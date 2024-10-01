@@ -69,7 +69,7 @@ const Hero = () => {
 							buttonWhite={true}
 							event={() => gtag.buttonEvent('Get In Touch button on hero')}
 						>
-							Get In Touch
+							Free Consultation
 						</Button>
 					</a>
 				</div>

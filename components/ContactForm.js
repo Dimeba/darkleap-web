@@ -35,9 +35,9 @@ const ContactForm = () => {
 						How can we help?
 					</option>
 					<option value='I need a website'>I need a website</option>
-					<option value='I need a logo'>I need a logo</option>
+					<option value='I need a logo'>I need design services</option>
 					<option value='I need a branding'>I need a branding</option>
-					<option value='I need a brochure'>I need a brochure</option>
+					{/* <option value='I need a brochure'>I need a brochure</option> */}
 					<option value='Other'>Other</option>
 				</select>
 
@@ -50,7 +50,10 @@ const ContactForm = () => {
 					required
 				/>
 
-				<label htmlFor='howDidYouHearAboutUs'>How did you hear about us?</label>
+				<label htmlFor='phone'>Phone Number</label>
+				<input type='tel' id='phone' name='phone' placeholder='Phone Number' />
+
+				{/* <label htmlFor='howDidYouHearAboutUs'>How did you hear about us?</label>
 
 				<select
 					id='howDidYouHearAboutUs'
@@ -65,10 +68,15 @@ const ContactForm = () => {
 					<option value='On Google'>On Google</option>
 					<option value='On Upwork'>On Upwork</option>
 					<option value='Other'>Other</option>
-				</select>
+				</select> */}
 
 				<label htmlFor='message'>Message</label>
-				<textarea id='message' name='message' placeholder='Message' required />
+				<textarea
+					id='message'
+					name='message'
+					placeholder='Tell us a bit about your current challenges or goals.'
+					required
+				/>
 			</div>
 
 			<Button type='submit'>Send Message</Button>

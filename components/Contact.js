@@ -8,7 +8,7 @@ const Contact = () => {
 	return (
 		<section id='contact' className={`${styles.contact} grid-container`}>
 			<div className={styles.contactText}>
-				<h2>Get In Touch</h2>
+				<h2>Get a Free Consultation</h2>
 				<p>
 					We're here to listen. Let's discuss your project and explore how we
 					can bring your ideas to life. Looking forward to connecting with you!

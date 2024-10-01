@@ -86,7 +86,7 @@ const Services = ({ services }) => {
 								)
 							}
 						>
-							Order Service
+							Free Consultation
 						</Button>
 					</a>
 				</div>

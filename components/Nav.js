@@ -58,27 +58,27 @@ const Header = () => {
 					<Hamburger toggleMenu={toggleMenu} menuClass={menuClass} />
 
 					<ul className={hiddenMenuClass}>
-						<a href='#about-us'>
+						<a href='/#about-us'>
 							<li onClick={() => closeMenu()}>About Us</li>
 						</a>
 
-						<a href='#services'>
+						<a href='/#services'>
 							<li onClick={() => closeMenu()}>Our Services</li>
 						</a>
 
-						<a href='#team'>
+						<a href='/#team'>
 							<li onClick={() => closeMenu()}>Our Team</li>
 						</a>
 
-						{/* <a href='#testimonials'  >
+						{/* <a href='/#testimonials'  >
 							<li onClick={() => closeMenu()}>Testimonials</li>
 						</a> */}
 
-						<a href='#work'>
+						<a href='/#work'>
 							<li onClick={() => closeMenu()}>Our Work</li>
 						</a>
 
-						<a href='#contact'>
+						<a href='/#contact'>
 							<li
 								className={`${styles.contactButton} ${
 									!isIntersecting ? styles.animatedButton : ''
