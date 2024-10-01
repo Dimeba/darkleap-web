@@ -11,8 +11,11 @@ import Work from '@/components/Work'
 import Contact from '@/components/Contact'
 
 // contentful
-
 import { createClient } from 'contentful'
+
+// hooks
+import { useEffect } from 'react'
+import { scrollEvent } from '@/lib/gtag'
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -53,6 +56,35 @@ export default function Home({
 	testimonials,
 	projects
 }) {
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const observer = new IntersectionObserver(
+				entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							scrollEvent(`${entry.target.id} section viewed`)
+						}
+					})
+				},
+				{
+					threshold: 0.5
+				}
+			)
+
+			const sections = document.querySelectorAll('section')
+			sections.forEach(section => {
+				observer.observe(section)
+			})
+
+			// Clean up the observer on unmount
+			return () => {
+				sections.forEach(section => {
+					observer.unobserve(section)
+				})
+			}
+		}
+	}, [])
+
 	return (
 		<>
 			<Head>

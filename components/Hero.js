@@ -67,7 +67,7 @@ const Hero = () => {
 					<a href='#contact' aria-label='Link to contact form'>
 						<Button
 							buttonWhite={true}
-							event={() => gtag.buttonEvent('Get In Touch button on hero')}
+							event={() => gtag.buttonEvent('Free Consultation button on hero')}
 						>
 							Free Consultation
 						</Button>
