@@ -9,12 +9,13 @@ import Values from '@/components/Values'
 import Testimonials from '@/components/Testimonials'
 import Work from '@/components/Work'
 import Contact from '@/components/Contact'
+import ContactButton from '@/components/ContactButton'
 
 // contentful
 import { createClient } from 'contentful'
 
 // hooks
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { scrollEvent } from '@/lib/gtag'
 
 export async function getStaticProps() {
@@ -56,6 +57,10 @@ export default function Home({
 	testimonials,
 	projects
 }) {
+	const [hideContactButton, setHideContactButton] = useState(false)
+	const [buttonBottom, setButtonBottom] = useState(false)
+
+	// Scroll event tracking
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			const observer = new IntersectionObserver(
@@ -72,6 +77,51 @@ export default function Home({
 			)
 
 			const sections = document.querySelectorAll('section')
+			sections.forEach(section => {
+				observer.observe(section)
+			})
+
+			// Clean up the observer on unmount
+			return () => {
+				sections.forEach(section => {
+					observer.unobserve(section)
+				})
+			}
+		}
+	}, [])
+
+	// Contact button visibility
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const observer = new IntersectionObserver(
+				entries => {
+					entries.forEach(entry => {
+						if (entry.target.id === 'contact' || entry.target.id === 'footer') {
+							if (entry.isIntersecting) {
+								setHideContactButton(true)
+							} else {
+								setHideContactButton(false)
+							}
+						}
+
+						if (entry.target.id === 'hero') {
+							if (entry.isIntersecting) {
+								setButtonBottom(false)
+							} else {
+								setButtonBottom(true)
+							}
+						}
+					})
+				},
+				{
+					threshold: 1
+				}
+			)
+
+			const sections = [
+				...document.querySelectorAll('section'),
+				document.querySelector('footer')
+			]
 			sections.forEach(section => {
 				observer.observe(section)
 			})
@@ -110,6 +160,10 @@ export default function Home({
 				{/* <Testimonials testimonials={testimonials} /> */}
 				<Work projects={projects} />
 				<Contact />
+				<ContactButton
+					hideContactButton={hideContactButton}
+					buttonBottom={buttonBottom}
+				/>
 			</>
 		</>
 	)

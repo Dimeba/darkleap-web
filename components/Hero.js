@@ -22,7 +22,7 @@ const Hero = () => {
 	const [targetRef, isIntersecting] = useIntersectionObserver(options)
 
 	return (
-		<div className={styles.hero}>
+		<section id='hero' className={styles.hero}>
 			<video ref={targetRef} autoPlay loop muted playsInline preload='auto'>
 				{isIntersecting && <source src='/hero.mp4' type='video/mp4' />}
 			</video>
@@ -74,7 +74,7 @@ const Hero = () => {
 					</a>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

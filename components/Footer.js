@@ -8,7 +8,7 @@ const Footer = () => {
 	const year = new Date().getFullYear()
 
 	return (
-		<footer className={styles.footer}>
+		<footer id='footer' className={styles.footer}>
 			<div className={`grid-container ${styles.footerContainer}`}>
 				<div className={styles.footerColumn}>
 					<ul className={styles.footerMenu}>

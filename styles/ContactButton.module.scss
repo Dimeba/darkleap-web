@@ -1,0 +1,111 @@
+@use 'base';
+
+.buttonContainer {
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+	padding: 2rem;
+	display: flex;
+	justify-content: flex-end;
+	transition: 0.3s ease-in-out;
+}
+
+.background {
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+	height: 200px;
+	bottom: 0;
+	background-image: linear-gradient(rgba(0, 0, 0, 0), base.$color-main);
+}
+
+.contactButton {
+	background-color: base.$color-green;
+	color: base.$color-main;
+	padding: 1rem 1.5rem;
+	border-radius: 2rem;
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+}
+
+.contactButton:hover::after {
+	width: 0 !important;
+}
+
+@keyframes contactButtonPulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+	}
+
+	50% {
+		transform: scale(1.1);
+		box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+	}
+}
+
+.animatedButton {
+	animation: contactButtonPulse 2s 1.8s infinite ease-in-out;
+}
+
+.bounceButton {
+	animation: bounce 1.5s 0.3s;
+}
+
+@keyframes bounce {
+	/* Start at ground level */
+	0% {
+		transform: translateY(0);
+	}
+	/* First big jump */
+	15% {
+		transform: translateY(-30vh);
+		/* Slowing down as it reaches the peak */
+		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+	}
+	/* Fall back to ground */
+	30% {
+		transform: translateY(0);
+		/* Speeding up due to gravity */
+		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
+	}
+	/* Second smaller jump */
+	45% {
+		transform: translateY(-9vh);
+		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+	}
+	/* Fall back to ground */
+	60% {
+		transform: translateY(0);
+		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
+	}
+	/* Third even smaller jump */
+	75% {
+		transform: translateY(-3vh);
+		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+	}
+	/* Fall back to ground */
+	85% {
+		transform: translateY(0);
+		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
+	}
+	/* Final tiny jump */
+	92% {
+		transform: translateY(-1vh);
+		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+	}
+	/* Settle at ground level */
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@media screen and (max-width: 1024px) {
+}
