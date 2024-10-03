@@ -94,6 +94,10 @@
 	font-weight: 600;
 }
 
+.hiddenButton {
+	display: none;
+}
+
 .contactButton:hover::after {
 	width: 0 !important;
 }
@@ -206,6 +210,10 @@
 
 	.contactButton {
 		margin-top: 1rem;
+	}
+
+	.hidden {
+		display: block;
 	}
 }
 

@@ -78,16 +78,14 @@ const Header = () => {
 							<li onClick={() => closeMenu()}>Our Work</li>
 						</a>
 
-						{isIntersecting && (
-							<a href='/#contact'>
-								<li
-									className={styles.contactButton}
-									onClick={() => closeMenu()}
-								>
-									Contact
-								</li>
-							</a>
-						)}
+						<a
+							href='/#contact'
+							className={isIntersecting ? '' : styles.hiddenButton}
+						>
+							<li className={styles.contactButton} onClick={() => closeMenu()}>
+								Contact
+							</li>
+						</a>
 					</ul>
 				</div>
 			</header>
