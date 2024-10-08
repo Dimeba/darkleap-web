@@ -19,10 +19,18 @@
 	background-image: linear-gradient(rgba(0, 0, 0, 0), base.$color-main);
 }
 
+$buttonHeight: 50px;
+$buttonWidth: 125px;
+$bounceHeight: 50px;
+
 .contactButton {
 	background-color: base.$color-green;
 	color: base.$color-main;
-	padding: 1rem 1.5rem;
+	height: $buttonHeight;
+	width: $buttonWidth;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: 2rem;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -34,76 +42,89 @@
 	width: 0 !important;
 }
 
-@keyframes contactButtonPulse {
-	0% {
-		transform: scale(1);
-		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
-	}
-
-	50% {
-		transform: scale(1.1);
-		box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
-	}
-
-	100% {
-		transform: scale(1);
-		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
-	}
-}
-
 .animatedButton {
-	animation: contactButtonPulse 2s 1.8s infinite ease-in-out;
+	animation: bounce, float;
+	animation-duration: 1s, 2s;
+	animation-delay: 0.3s, 1.8s;
+	animation-iteration-count: 1, infinite;
+	animation-timing-function: forwards, ease-in-out;
+	transform-origin: center center;
 }
 
-.bounceButton {
-	animation: bounce 1.5s 0.3s;
+@keyframes float {
+	0% {
+		transform: translateY(0);
+		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+	}
+	50% {
+		transform: translateY(-2vh);
+		box-shadow: 0 0 20px rgba(40, 167, 69, 0.6);
+	}
+	100% {
+		transform: translateY(0);
+		box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+	}
 }
 
 @keyframes bounce {
 	/* Start at ground level */
 	0% {
-		transform: translateY(0);
+		transform: translateY(0) rotate(0deg);
+		width: $buttonWidth;
+		height: $buttonHeight;
 	}
-	/* First big jump */
+	/* First big jump with rotation to one side */
 	15% {
-		transform: translateY(-30vh);
+		transform: translateY(-10vh) translateX(calc(#{$buttonWidth} * 0.05))
+			rotate(20deg);
+		width: calc(#{$buttonWidth} * 1.1);
+		height: calc(#{$buttonHeight} * 0.9);
 		/* Slowing down as it reaches the peak */
 		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
 	}
-	/* Fall back to ground */
+	/* Fall back to ground, rotation back to 0 */
 	30% {
-		transform: translateY(0);
+		transform: translateY(0) translateX(0) rotate(0deg);
+		width: $buttonWidth;
+		height: $buttonHeight;
 		/* Speeding up due to gravity */
 		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
 	}
-	/* Second smaller jump */
+	/* Second smaller jump, rotate to the other side */
 	45% {
-		transform: translateY(-9vh);
+		transform: translateY(-3vh) translateX(calc(#{$buttonWidth} * 0.05))
+			rotate(-15deg);
+		width: calc(#{$buttonWidth} * 1.1);
+		height: calc(#{$buttonHeight} * 0.9);
 		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
 	}
-	/* Fall back to ground */
+	/* Fall back to ground, rotation back to 0 */
 	60% {
-		transform: translateY(0);
+		transform: translateY(0) translateX(0) rotate(0deg);
+		width: $buttonWidth;
+		height: $buttonHeight;
 		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
 	}
-	/* Third even smaller jump */
+	/* Third even smaller jump, rotate back to the first side */
 	75% {
-		transform: translateY(-3vh);
+		transform: translateY(-1vh) translateX(calc(#{$buttonWidth} * 0.05))
+			rotate(10deg);
+		width: calc(#{$buttonWidth} * 1.1);
+		height: calc(#{$buttonHeight} * 0.9);
 		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
 	}
-	/* Fall back to ground */
+	/* Fall back to ground, rotation back to 0 */
 	85% {
-		transform: translateY(0);
+		transform: translateY(0) translateX(0) rotate(0deg);
+		width: $buttonWidth;
+		height: $buttonHeight;
 		animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
-	}
-	/* Final tiny jump */
-	92% {
-		transform: translateY(-1vh);
-		animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
 	}
 	/* Settle at ground level */
 	100% {
-		transform: translateY(0);
+		transform: translateY(0) rotate(0deg);
+		width: $buttonWidth;
+		height: $buttonHeight;
 	}
 }
 

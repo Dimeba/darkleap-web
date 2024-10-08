@@ -79,9 +79,7 @@ const ContactButton = () => {
 		<>
 			{buttonBottom && <div className={styles.background}></div>}
 			<div
-				className={`${styles.buttonContainer} ${
-					buttonBottom ? styles.bounceButton : ''
-				}`}
+				className={`${styles.buttonContainer}`}
 				style={{
 					right: hideContactButton ? '-100%' : '0',
 					bottom: buttonBottom ? '0' : '100vh',
@@ -92,7 +90,7 @@ const ContactButton = () => {
 					href='/#contact'
 					className={`${styles.contactButton} ${
 						buttonBottom ? styles.animatedButton : ''
-					}`}
+					} ${buttonBottom ? styles.bounceButton : ''}`}
 				>
 					Contact
 				</a>
