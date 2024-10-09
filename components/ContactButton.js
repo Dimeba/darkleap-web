@@ -4,6 +4,9 @@ import styles from '@/styles/ContactButton.module.scss'
 // hooks
 import { useState, useEffect } from 'react'
 
+// GA
+import * as gtag from '@/lib/gtag'
+
 const ContactButton = () => {
 	const [hideContactButton, setHideContactButton] = useState(false)
 	const [buttonBottom, setButtonBottom] = useState(false)
@@ -91,6 +94,7 @@ const ContactButton = () => {
 					className={`${styles.contactButton} ${
 						buttonBottom ? styles.animatedButton : ''
 					} ${buttonBottom ? styles.bounceButton : ''}`}
+					onClick={() => gtag.buttonEvent('Floating contact button')}
 				>
 					Contact
 				</a>
