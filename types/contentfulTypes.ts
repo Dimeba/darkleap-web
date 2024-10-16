@@ -19,6 +19,16 @@ export interface TeamMember extends Entry {
 	}
 }
 
+export interface Testimonial extends Entry {
+	fields: {
+		title: string
+		text: string
+		client: string
+		company: string
+		image: Image
+	}
+}
+
 export interface Project extends Entry {
 	fields: {
 		title: string

@@ -37,7 +37,6 @@ const ContactForm = () => {
 					<option value='I need a website'>I need a website</option>
 					<option value='I need a logo'>I need design services</option>
 					<option value='I need a branding'>I need a branding</option>
-					{/* <option value='I need a brochure'>I need a brochure</option> */}
 					<option value='Other'>Other</option>
 				</select>
 
@@ -52,23 +51,6 @@ const ContactForm = () => {
 
 				<label htmlFor='phone'>Phone Number</label>
 				<input type='tel' id='phone' name='phone' placeholder='Phone Number' />
-
-				{/* <label htmlFor='howDidYouHearAboutUs'>How did you hear about us?</label>
-
-				<select
-					id='howDidYouHearAboutUs'
-					name='howDidYouHearAboutUs'
-					defaultValue='defaultOption'
-				>
-					<option disabled hidden value='defaultOption'>
-						How did you hear about us?
-					</option>
-					<option value='Recommended by someone'>Recommended by someone</option>
-					<option value='On Social Media'>On Social Media</option>
-					<option value='On Google'>On Google</option>
-					<option value='On Upwork'>On Upwork</option>
-					<option value='Other'>Other</option>
-				</select> */}
 
 				<label htmlFor='message'>Message</label>
 				<textarea

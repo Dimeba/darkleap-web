@@ -4,11 +4,25 @@ import styles from '@/styles/Testimonials.module.scss'
 // components
 import Image from 'next/image'
 
-const TestimonialCard = props => {
+interface Props {
+	title: string
+	text: string
+	client: string
+	company: string
+	image: string
+}
+
+const TestimonialCard: React.FC<Props> = ({
+	title,
+	text,
+	client,
+	company,
+	image
+}) => {
 	return (
 		<div className={styles.testimonial}>
 			<Image
-				src={props.image}
+				src={image}
 				sizes='(max-width: 768px) 100vw, 768px'
 				alt='Team Member Photo'
 				priority={false}
@@ -18,11 +32,11 @@ const TestimonialCard = props => {
 			/>
 
 			<div className={styles.testimonialText}>
-				<h3>{props.title}</h3>
-				<p>{props.text}</p>
+				<h3>{title}</h3>
+				<p>{text}</p>
 
-				<h4>{props.client}</h4>
-				<p>{props.company}</p>
+				<h4>{client}</h4>
+				<p>{company}</p>
 			</div>
 		</div>
 	)

@@ -7,10 +7,27 @@ import TestimonialCard from './TestimonialCard'
 // hooks
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
-const Testimonials = ({ testimonials }) => {
+// types
+import { Testimonial } from '@/types/contentfulTypes'
+
+interface Props {
+	testimonials: Testimonial[]
+}
+
+const Testimonials: React.FC<Props> = ({ testimonials }) => {
 	// animated slider
-	const options = { root: null, rootMargin: '0px', threshold: 0 }
-	const [targetRef, isIntersecting] = useIntersectionObserver(options)
+	interface Options {
+		root: null
+		rootMargin: string
+		threshold: number
+	}
+
+	const options: Options = { root: null, rootMargin: '0px', threshold: 0 }
+
+	const [targetRef, isIntersecting] = useIntersectionObserver(options) as [
+		React.MutableRefObject<HTMLDivElement>,
+		boolean
+	]
 
 	// There must be 10 testimonials!!!
 

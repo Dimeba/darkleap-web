@@ -3,23 +3,30 @@ import styles from '@/styles/Hero.module.scss'
 
 // components
 import Button from './Button'
-import Image from 'next/image'
 
 // GA
 import * as gtag from '@/lib/gtag'
 
 // hooks
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
-import { useState } from 'react'
 
 const Hero = () => {
-	const options = {
+	type Options = {
+		root: null
+		rootMargin: string
+		threshold: number
+	}
+
+	const options: Options = {
 		root: null,
 		rootMargin: '0%',
 		threshold: 0
 	}
 
-	const [targetRef, isIntersecting] = useIntersectionObserver(options)
+	const [targetRef, isIntersecting] = useIntersectionObserver(options) as [
+		React.MutableRefObject<HTMLVideoElement | null>,
+		boolean
+	]
 
 	return (
 		<section id='hero' className={styles.hero}>
@@ -66,7 +73,6 @@ const Hero = () => {
 					</a> */}
 					<a href='#contact' aria-label='Link to contact form'>
 						<Button
-							buttonWhite={true}
 							event={() => gtag.buttonEvent('Free Consultation button on hero')}
 						>
 							Free Consultation

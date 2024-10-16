@@ -10,28 +10,37 @@ import Image from 'next/image'
 // GA
 import * as gtag from '@/lib/gtag'
 
-const Services = ({ services }) => {
-	const [activeService, setActiveService] = useState(services[0])
-	const targetRef = useRef(null)
+// types
+import { Service } from '@/types/contentfulTypes'
+
+interface Props {
+	services: Service[]
+}
+
+const Services: React.FC<Props> = ({ services }) => {
+	const [activeService, setActiveService] = useState<Service>(services[0])
+	const targetRef = useRef<HTMLDivElement>(null)
 
 	// scroll to targetRef when service is clicked on mobile
 	const handleScroll = () => {
-		const mobileBreakpoint = 768
+		const mobileBreakpoint: number = 768
 
 		if (window.innerWidth <= mobileBreakpoint) {
-			const offset = 78
+			const offset: number = 78
 
-			const targetPosition =
-				targetRef.current.getBoundingClientRect().top + window.pageYOffset
+			if (targetRef.current) {
+				const targetPosition =
+					targetRef.current.getBoundingClientRect().top + window.scrollY
 
-			window.scrollTo({
-				top: targetPosition - offset,
-				behavior: 'smooth'
-			})
+				window.scrollTo({
+					top: targetPosition - offset,
+					behavior: 'smooth'
+				})
+			}
 		}
 	}
 
-	const handleServiceClick = (index, serviceTitle) => {
+	const handleServiceClick = (index: number, serviceTitle: string) => {
 		setActiveService(services[index])
 		gtag.buttonEvent(`${serviceTitle} button on services section`)
 		handleScroll()
@@ -79,7 +88,6 @@ const Services = ({ services }) => {
 
 					<a href='#contact' aria-label='Link to contact form'>
 						<Button
-							buttonWhite={false}
 							event={() =>
 								gtag.buttonEvent(
 									`Get In Touch button on ${activeService.fields.title} service`
@@ -111,7 +119,6 @@ const Services = ({ services }) => {
 
 				<a href='#contact' aria-label='Link to contact form'>
 					<Button
-						buttonWhite={false}
 						event={() =>
 							gtag.buttonEvent(
 								`Get In Touch button on  ${activeService.fields.title} service`

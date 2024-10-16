@@ -4,7 +4,14 @@ import styles from '@/styles/Team.module.scss'
 // components
 import TeamCard from './TeamCard'
 
-const Team = ({ team }) => {
+// types
+import { TeamMember } from '@/types/contentfulTypes'
+
+interface Props {
+	team: TeamMember[]
+}
+
+const Team: React.FC<Props> = ({ team }) => {
 	return (
 		<section id='team' className={`${styles.team} grid-container`}>
 			<div className={styles.teamText}>

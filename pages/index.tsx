@@ -7,7 +7,7 @@ import Services from '@/components/Services'
 import Team from '@/components/Team'
 import Values from '@/components/Values'
 // import Testimonials from '@/components/Testimonials'
-import Work from '@/components/Work'
+import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
 import ContactButton from '@/components/ContactButton'
 
@@ -15,7 +15,12 @@ import ContactButton from '@/components/ContactButton'
 import { getEntries } from '@/lib/contentful'
 
 // types
-import { Service, TeamMember, Project } from '@/types/contentfulTypes'
+import {
+	Service,
+	TeamMember,
+	Testimonial,
+	Project
+} from '@/types/contentfulTypes'
 
 // hooks
 import { useEffect } from 'react'
@@ -40,7 +45,7 @@ export async function getStaticProps() {
 interface Props {
 	services: Service[]
 	teamMembers: TeamMember[]
-	// testimonials: any;
+	// testimonials: Testimonial[]
 	projects: Project[]
 }
 
@@ -103,7 +108,7 @@ export default function Home({
 				<Team team={teamMembers} />
 				<Values />
 				{/* <Testimonials testimonials={testimonials} /> */}
-				<Work projects={projects} />
+				<Projects projects={projects} />
 				<Contact />
 				<ContactButton />
 			</>

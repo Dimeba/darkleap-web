@@ -1,5 +1,5 @@
 // styles
-import styles from '@/styles/Work.module.scss'
+import styles from '@/styles/Projects.module.scss'
 
 // components
 import Image from 'next/image'
@@ -8,7 +8,13 @@ import Link from 'next/link'
 // GA
 import * as gtag from '@/lib/gtag'
 
-const ProjectCard = ({ title, photo, link }) => {
+interface Props {
+	title: string
+	photo: string
+	link: string
+}
+
+const ProjectCard: React.FC<Props> = ({ title, photo, link }) => {
 	return (
 		<Link href={link} scroll={false} target='_blank' passHref>
 			<div

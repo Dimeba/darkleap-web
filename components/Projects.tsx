@@ -1,10 +1,17 @@
 // styles
-import styles from '@/styles/Work.module.scss'
+import styles from '@/styles/Projects.module.scss'
 
 // components
 import ProjectCard from './ProjectCard'
 
-const Work = ({ projects }) => {
+// types
+import { Project } from '@/types/contentfulTypes'
+
+interface Props {
+	projects: Project[]
+}
+
+const Projects: React.FC<Props> = ({ projects }) => {
 	return (
 		<section className={styles.work} id='work'>
 			<div className={styles.projects}>
@@ -28,4 +35,4 @@ const Work = ({ projects }) => {
 	)
 }
 
-export default Work
+export default Projects

@@ -1,7 +1,14 @@
 // styles
 import styles from '@/styles/Button.module.scss'
 
-const Button = ({ type, event, transparent, children }) => {
+interface Props {
+	type?: 'button' | 'submit' | 'reset'
+	event?: React.MouseEventHandler<HTMLButtonElement>
+	transparent?: boolean
+	children: React.ReactNode
+}
+
+const Button: React.FC<Props> = ({ type, event, transparent, children }) => {
 	return (
 		<button
 			className={styles.button}
@@ -14,7 +21,7 @@ const Button = ({ type, event, transparent, children }) => {
 							padding: '1rem 1rem 1rem 1.5rem',
 							borderRadius: '2rem'
 					  }
-					: null
+					: undefined
 			}
 		>
 			<div
