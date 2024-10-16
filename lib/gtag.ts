@@ -45,7 +45,7 @@ export const event = ({
 // Button event
 export const buttonEvent = (label: string): void => {
 	if (typeof window !== 'undefined' && window.gtag) {
-		window.gtag('event', 'click', {
+		window.gtag('event', label, {
 			event_category: 'Button',
 			event_label: label,
 			value: 1
@@ -56,7 +56,7 @@ export const buttonEvent = (label: string): void => {
 // Scroll event
 export const scrollEvent = (label: string): void => {
 	if (typeof window !== 'undefined' && window.gtag) {
-		window.gtag('event', 'scroll', {
+		window.gtag('event', label, {
 			event_category: 'Scroll',
 			event_label: label,
 			value: 1
