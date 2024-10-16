@@ -5,7 +5,10 @@ import styles from '@/styles/Testimonials.module.scss'
 import TestimonialCard from './TestimonialCard'
 
 // hooks
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+import {
+	Options,
+	useIntersectionObserver
+} from '@/hooks/useIntersectionObserver'
 
 // types
 import { Testimonial } from '@/types/contentfulTypes'
@@ -16,12 +19,6 @@ interface Props {
 
 const Testimonials: React.FC<Props> = ({ testimonials }) => {
 	// animated slider
-	interface Options {
-		root: null
-		rootMargin: string
-		threshold: number
-	}
-
 	const options: Options = { root: null, rootMargin: '0px', threshold: 0 }
 
 	const [targetRef, isIntersecting] = useIntersectionObserver(options) as [

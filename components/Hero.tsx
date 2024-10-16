@@ -8,15 +8,12 @@ import Button from './Button'
 import * as gtag from '@/lib/gtag'
 
 // hooks
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+import {
+	Options,
+	useIntersectionObserver
+} from '@/hooks/useIntersectionObserver'
 
 const Hero = () => {
-	type Options = {
-		root: null
-		rootMargin: string
-		threshold: number
-	}
-
 	const options: Options = {
 		root: null,
 		rootMargin: '0%',

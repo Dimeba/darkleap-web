@@ -1,10 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, MutableRefObject } from 'react'
+
+export interface Options {
+	root?: Element | null
+	rootMargin?: string
+	threshold?: number | number[]
+}
 
 export const useIntersectionObserver = (
-	options = { root: null, rootMargin: '0px', threshold: 1.0 }
-) => {
+	options: Options = { root: null, rootMargin: '0px', threshold: 1.0 }
+): [MutableRefObject<Element | null>, boolean] => {
 	const [isIntersecting, setIsIntersecting] = useState(false)
-	const targetRef = useRef()
+	const targetRef = useRef<Element | null>(null)
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(([entry]) => {
