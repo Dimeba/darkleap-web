@@ -6,57 +6,52 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import Team from '@/components/Team'
 import Values from '@/components/Values'
-import Testimonials from '@/components/Testimonials'
+// import Testimonials from '@/components/Testimonials'
 import Work from '@/components/Work'
 import Contact from '@/components/Contact'
 import ContactButton from '@/components/ContactButton'
 
-// contentful
-import { createClient } from 'contentful'
+// lib
+import { getEntries } from '@/lib/contentful'
+
+// types
+import { Service, TeamMember, Project } from '@/types/contentfulTypes'
 
 // hooks
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { scrollEvent } from '@/lib/gtag'
 
 export async function getStaticProps() {
-	const client = createClient({
-		space: process.env.space,
-		accessToken: process.env.accessToken
-	})
-
-	const service = await client.getEntries({
-		content_type: 'service'
-	})
-
-	const team = await client.getEntries({
-		content_type: 'team',
-		order: 'sys.createdAt'
-	})
-
-	const testimonial = await client.getEntries({
-		content_type: 'testimonial'
-	})
-
-	const project = await client.getEntries({
-		content_type: 'project'
-	})
+	const service = await getEntries('service')
+	const team = await getEntries('team')
+	// const testimonial = await getEntries('testimonial')
+	const project = await getEntries('project')
 
 	return {
 		props: {
 			services: service.items,
 			teamMembers: team.items,
-			projects: project.items,
-			testimonials: testimonial.items
+			projects: project.items
+			// testimonials: testimonial.items
 		}
 	}
+}
+
+interface Props {
+	services: Service[]
+	teamMembers: TeamMember[]
+	// testimonials: any;
+	projects: Project[]
 }
 
 export default function Home({
 	services,
 	teamMembers,
-	testimonials,
+	// testimonials,
 	projects
-}) {
+}: Props) {
+	console.log(projects[0])
+
 	// Scroll event tracking
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
