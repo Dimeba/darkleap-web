@@ -8,22 +8,22 @@ import { useState, useEffect } from 'react'
 import * as gtag from '@/lib/gtag'
 
 const ContactButton = () => {
-	const [hideContactButton, setHideContactButton] = useState(false)
-	const [buttonBottom, setButtonBottom] = useState(false)
+	const [hideContactButton, setHideContactButton] = useState<boolean>(false)
+	const [buttonBottom, setButtonBottom] = useState<boolean>(false)
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			// Determine if the device is mobile
-			const isMobile = window.innerWidth <= 768 // Adjust the breakpoint as needed
+			const isMobile: boolean = window.innerWidth <= 768 // Adjust the breakpoint as needed
 
 			// Set thresholds based on screen size
-			const heroThreshold = isMobile ? 0.1 : 1
-			const contactThreshold = 0.1
+			const heroThreshold: number = isMobile ? 0.1 : 1
+			const contactThreshold: number = 0.1
 
 			// Observer for the 'hero' section
-			const heroObserver = new IntersectionObserver(
-				entries => {
-					entries.forEach(entry => {
+			const heroObserver: IntersectionObserver = new IntersectionObserver(
+				(entries: IntersectionObserverEntry[]) => {
+					entries.forEach((entry: IntersectionObserverEntry) => {
 						if (entry.isIntersecting) {
 							setButtonBottom(false)
 						} else {
@@ -37,9 +37,9 @@ const ContactButton = () => {
 			)
 
 			// Observer for the 'contact' section
-			const contactObserver = new IntersectionObserver(
-				entries => {
-					entries.forEach(entry => {
+			const contactObserver: IntersectionObserver = new IntersectionObserver(
+				(entries: IntersectionObserverEntry[]) => {
+					entries.forEach((entry: IntersectionObserverEntry) => {
 						if (entry.isIntersecting) {
 							setHideContactButton(true)
 						} else {
@@ -53,8 +53,9 @@ const ContactButton = () => {
 			)
 
 			// Get the elements to observe
-			const heroSection = document.getElementById('hero')
-			const contactSection = document.getElementById('contact')
+			const heroSection: HTMLElement | null = document.getElementById('hero')
+			const contactSection: HTMLElement | null =
+				document.getElementById('contact')
 
 			// Start observing the 'hero' section
 			if (heroSection) {

@@ -5,13 +5,13 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 // Components
-import Nav from './Nav'
+import Header from './Header'
 import Footer from './Footer'
 
 const Layout = ({ children }: { children: ReactNode }) => {
 	return (
 		<main className={inter.className}>
-			<Nav />
+			<Header />
 			{children}
 			<Footer />
 		</main>

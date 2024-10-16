@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
@@ -7,19 +6,28 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 import { Spin as Hamburger } from 'hamburger-react'
 
 // styles
-import styles from '@/styles/Nav.module.scss'
+import styles from '@/styles/Header.module.scss'
 
 const Header = () => {
 	// Scrolling Header
-	const [targetRef, isIntersecting] = useIntersectionObserver()
+	const [targetRef, isIntersecting] = useIntersectionObserver() as [
+		React.MutableRefObject<HTMLElement | null>,
+		boolean
+	]
 
 	// Mobile Menu
-	const [menuOpen, setMenuOpen] = useState(false)
-	const [hiddenMenuClass, setHiddenMenuClas] = useState(styles.hidden)
-	const [isMobile, setIsMobile] = useState(false)
+	const [menuOpen, setMenuOpen] = useState<boolean>(false)
+	const [isMobile, setIsMobile] = useState<boolean>(false)
 
 	// Menu
-	const menu = [
+	interface MenuItem {
+		title: string
+		link: string
+	}
+
+	type Menu = MenuItem[]
+
+	const menu: Menu = [
 		{ title: 'About Us', link: '/#about-us' },
 		{ title: 'Our Services', link: '/#services' },
 		{ title: 'Our Team', link: '/#team' },
@@ -46,16 +54,13 @@ const Header = () => {
 	const toggleMenu = () => {
 		if (!menuOpen) {
 			setMenuOpen(true)
-			setHiddenMenuClas('')
 		} else {
 			setMenuOpen(false)
-			setHiddenMenuClas(styles.hidden)
 		}
 	}
 
 	const closeMenu = () => {
 		setMenuOpen(false)
-		setHiddenMenuClas(styles.hidden)
 	}
 
 	return (

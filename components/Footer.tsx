@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from '@/styles/Footer.module.scss'
 
 const Footer = () => {
-	const year = new Date().getFullYear()
+	const year: number = new Date().getFullYear()
 
 	return (
 		<footer id='footer' className={styles.footer}>

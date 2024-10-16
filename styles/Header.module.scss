@@ -51,10 +51,6 @@
 			left: 0;
 		}
 	}
-
-	.hidden {
-		display: flex;
-	}
 }
 
 .contactButton {
@@ -96,10 +92,6 @@
 				color: base.$color-main !important;
 			}
 		}
-
-		.hidden {
-			display: none;
-		}
 	}
 
 	.menu {
@@ -109,10 +101,6 @@
 
 	.contactButton {
 		margin-top: 1rem;
-	}
-
-	.hidden {
-		display: block;
 	}
 }
 
