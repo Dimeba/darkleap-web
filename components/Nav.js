@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 // Components
-import Hamburger from './Hamburger'
+import { Spin as Hamburger } from 'hamburger-react'
 
 // styles
 import styles from '@/styles/Nav.module.scss'
@@ -14,25 +14,46 @@ const Header = () => {
 	const [targetRef, isIntersecting] = useIntersectionObserver()
 
 	// Mobile Menu
-
 	const [menuOpen, setMenuOpen] = useState(false)
-	const [menuClass, setMenuClass] = useState(styles.menuBtnClosed)
 	const [hiddenMenuClass, setHiddenMenuClas] = useState(styles.hidden)
+	const [isMobile, setIsMobile] = useState(false)
+
+	// Menu
+	const menu = [
+		{ title: 'About Us', link: '/#about-us' },
+		{ title: 'Our Services', link: '/#services' },
+		{ title: 'Our Team', link: '/#team' },
+		// { title: 'Testimonials', link: '/#testimonials' },
+		{ title: 'Our Work', link: '/#work' }
+	]
+
+	// Check if mobile and close menu on resize
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 1024)
+			setMenuOpen(false)
+		}
+
+		handleResize()
+
+		window.addEventListener('resize', handleResize)
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
 
 	const toggleMenu = () => {
 		if (!menuOpen) {
-			setMenuClass(styles.menuBtnOpen)
 			setMenuOpen(true)
 			setHiddenMenuClas('')
 		} else {
-			setMenuClass(styles.menuBtnClosed)
 			setMenuOpen(false)
 			setHiddenMenuClas(styles.hidden)
 		}
 	}
 
 	const closeMenu = () => {
-		setMenuClass(styles.menuBtnClosed)
 		setMenuOpen(false)
 		setHiddenMenuClas(styles.hidden)
 	}
@@ -40,13 +61,22 @@ const Header = () => {
 	return (
 		<nav ref={targetRef}>
 			<header
-				className={isIntersecting ? styles.headerTop : styles.headerScroll}
+				className={styles.header}
+				style={{
+					backgroundColor: isIntersecting && !menuOpen ? '' : 'white',
+					padding: isIntersecting ? '1.5rem' : '2.75rem',
+					height: menuOpen && isMobile ? '100vh' : 'auto'
+				}}
 			>
-				<div className={styles.nav}>
+				<div>
 					<a href='/'>
 						<div className={styles.logo}>
 							<Image
-								src={isIntersecting ? 'logo-white.svg' : 'logo-dark.svg'}
+								src={
+									isIntersecting && !menuOpen
+										? 'logo-white.svg'
+										: 'logo-dark.svg'
+								}
 								width={134}
 								height={30}
 								alt='DarkLeap Logo'
@@ -55,39 +85,39 @@ const Header = () => {
 						</div>
 					</a>
 
-					<Hamburger toggleMenu={toggleMenu} menuClass={menuClass} />
+					{isMobile && (
+						<Hamburger
+							color={isIntersecting && !menuOpen ? 'white' : 'black'}
+							size={20}
+							toggled={menuOpen}
+							toggle={toggleMenu}
+						/>
+					)}
+				</div>
 
-					<ul className={hiddenMenuClass}>
-						<a href='/#about-us'>
-							<li onClick={() => closeMenu()}>About Us</li>
-						</a>
-
-						<a href='/#services'>
-							<li onClick={() => closeMenu()}>Our Services</li>
-						</a>
-
-						<a href='/#team'>
-							<li onClick={() => closeMenu()}>Our Team</li>
-						</a>
-
-						{/* <a href='/#testimonials'  >
-							<li onClick={() => closeMenu()}>Testimonials</li>
-						</a> */}
-
-						<a href='/#work'>
-							<li onClick={() => closeMenu()}>Our Work</li>
-						</a>
+				{(menuOpen || !isMobile) && (
+					<ul>
+						{menu.map(item => (
+							<a key={item.title} href={item.link}>
+								<li
+									style={{ color: isIntersecting ? 'white' : '#16171a' }}
+									onClick={() => closeMenu()}
+								>
+									{item.title}
+								</li>
+							</a>
+						))}
 
 						<a
 							href='/#contact'
-							className={isIntersecting ? '' : styles.hiddenButton}
+							className={isIntersecting || menuOpen ? '' : styles.hiddenButton}
 						>
 							<li className={styles.contactButton} onClick={() => closeMenu()}>
 								Contact
 							</li>
 						</a>
 					</ul>
-				</div>
+				)}
 			</header>
 		</nav>
 	)
