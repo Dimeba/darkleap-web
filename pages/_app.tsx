@@ -1,4 +1,8 @@
+// styles
 import '@/styles/globals.scss'
+
+// types
+import type { AppProps } from 'next/app'
 
 // components
 import Layout from '@/components/Layout'
@@ -8,7 +12,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '@/lib/gtag'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 
 	useEffect(() => {
