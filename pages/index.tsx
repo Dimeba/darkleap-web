@@ -50,8 +50,6 @@ export default function Home({
 	// testimonials,
 	projects
 }: Props) {
-	console.log(projects[0])
-
 	// Scroll event tracking
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
